@@ -1,0 +1,21 @@
+﻿ject Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+	  <PackageReference Include="RestSharp" Version="106.11.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OnyxRevamped.WindowsService\OnyxRevamped.WindowsService.csproj" />
+    <ProjectReference Include="..\src\API\API.csproj" />
+    <ProjectReference Include="..\src\Application\Application.csproj" />
+    <ProjectReference Include="..\src\Domain\Domain.csproj" />
+    <ProjectReference Include="..\src\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,131 @@
+trigger:
+  branches:
+    include:
+      - main
+      - dev
+  paths:
+    include:
+      - RubyReloaded.WalletService/
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - name: azureSubscription
+    value: MPN Subscription
+  - name: dockerImageRegistry
+    value: devappcontainers.azurecr.io
+  - name: dockerImageTag
+    value: $[format('{0}-{1}', lower(variables['Build.SourceBranchName']), variables['Build.BuildId'])]
+  - name: dockerImageName
+    value: "rubyreloaded/wallet-service:$(dockerImageTag)"
+  - name: basePath
+    value: RubyReloaded.WalletService
+  - name: chartBasePath
+    value: $(basePath)/helm/rubyreloaded-wallet
+  - name: isDev
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/dev')]
+  - name: isMain
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+  - name: DOCKER_BUILDKIT
+    value: 1
+
+resources:
+  containers:
+    - container: deps
+      image: devappcontainers.azurecr.io/rubyreloaded/wallet-service-deps
+      endpoint: devappcontainers
+
+stages:
+  - stage: CodeAnalysis
+    displayName: Code Analysis
+    condition: eq(variables.isDev, true)
+    variables:
+      - group: shared-keyvault-secrets
+    pool:
+      name: DedicatedPipelines
+    jobs:
+      - job: RunSonar
+        displayName: Sonar Scan
+        container: deps
+        steps:
+          - script: |
+              set -e
+              dotnet tool install --global dotnet-sonarscanner
+              export PATH="$PATH:/home/AzDevOps_azpcontainer/.dotnet/tools"
+              mkdir -p ~/.sonar
+              cp -r /opt/sonarcache ~/.sonar/cache
+              dotnet sonarscanner begin /k:"rubyreloaded-wallet" /d:sonar.host.url="https://sonarqube.anelloh.com"  /d:sonar.login="$(sonarqube-pushToken)"
+              dotnet build "API.csproj" -c Release
+              dotnet sonarscanner end /d:sonar.login="$(sonarqube-pushToken)"
+            workingDirectory: $(basePath)/src/API
+
+  - stage: Build
+    displayName: Build
+    dependsOn: []
+    jobs:
+      - job: Build
+        steps:
+          - task: Docker@1
+            displayName: "Build Docker Image"
+            inputs:
+              azureSubscriptionEndpoint: $(azureSubscription)
+              azureContainerRegistry: $(dockerImageRegistry)
+              dockerFile: $(basePath)/src/API/Dockerfile
+              buildContext: "."
+              useDefaultContext: false
+              imageName: $(dockerImageName)
+              includeSourceTags: true
+
+          - task: Docker@1
+            displayName: "Push Docker Image"
+            inputs:
+              azureSubscriptionEndpoint: $(azureSubscription)
+              azureContainerRegistry: $(dockerImageRegistry)
+              command: "Push an image"
+              imageName: "$(dockerImageName)"
+              includeSourceTags: true
+
+  - stage: DeployDev
+    displayName: Deploy to Dev
+    dependsOn:
+      - Build
+    jobs:
+      - deployment: DeployDev
+        displayName: Deploy to Dev
+        environment: dev
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+
+                - task: AzureCLI@2
+                  displayName: Set KeyVault IDs for dev deployment
+                  inputs:
+                    azureSubscription: $(azureSubscription)
+                    scriptType: bash
+                    scriptLocation: inlineScript
+                    addSpnToEnvironment: true
+                    useGlobalConfig: true
+                    inlineScript: |
+                      subId=`az account show --query id --output tsv`
+                      tenantId=`az keyvault show -n anelloh-dev --query properties.tenantId --output tsv`
+
+                      sed -e "s/subscriptionId: \"<set by pipeline>\"/subscriptionId: \"${subId}\"/g" -i'' $(chartBasePath)/values.yaml
+                      sed -e "s/tenantId: \"<set by pipeline>\"/tenantId: \"${tenantId}\"/g" -i'' $(chartBasePath)/values.yaml
+
+                - task: HelmDeploy@0
+                  displayName: Deploy Dev
+                  inputs:
+                    connectionType: Azure Resource Manager
+                    azureSubscription: $(azureSubscription)
+                    azureResourceGroup: dev
+                    kubernetesCluster: dev
+                    namespace: default
+                    command: upgrade
+                    arguments: --install
+                    chartType: FilePath
+                    chartPath: $(basePath)/helm/rubyreloaded-wallet
+                    releaseName: rubyreloaded-wallet
+                    overrideValues: image.tag=$(dockerImageTag)

@@ -1,0 +1,8798 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>Menu</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+<style>
+html { font-family:sans-serif; background-color:#ffffff; font-size:75%;}
+a { text-decoration:none; color:rgb(0,51,102) }
+.header a { color:#000!important }
+.item { border:solid 0px #000; padding:0.25em; margin-left:1em }
+.header, .leaf { cursor:pointer; padding-left:19px; min-height:18px; line-height:18px; white-space:nowrap;}
+.closed { background:url(bookC.gif) no-repeat }
+.open { background:url(bookE.gif) no-repeat }
+.leaf { background:url(leaf.gif) no-repeat }
+</style>
+
+<script>
+function toggle(idsub,elhead) {
+    var elsub = document.getElementById(idsub);
+    if(elsub.style.display=="block")
+        elsub.style.display = "none";
+    else
+        elsub.style.display="block";
+        
+    if(elhead.className=="header open")
+        elhead.className = "header closed";
+    else
+        elhead.className = "header open";
+}
+
+function expandLinkInToc(url) {
+	var link = findLink(url);
+	//alert(link);
+	//alert(link.innerHTML);
+	if(!isElementVisible(link)) {
+		expandElementAndParents(link);
+	}
+	link.scrollIntoView(true);
+	link.focus();
+}
+
+function expandElementAndParents(elm) {
+	if(elm.style) {
+		if(elm.style.display=="none") {
+			//elm is container with subtopics
+			elm.style.display="block";
+			// process also chapter header
+			var id = elm.getAttribute("id");
+			id = id.substring(1);
+			var elHead = document.getElementById(id);
+			if(elHead.className=="header closed") {
+				elHead.className = "header open";
+			}
+		}
+	}
+	// process parents
+	if (elm.parentNode) {
+		expandElementAndParents(elm.parentNode);
+	}
+}
+
+function findLink(url) {
+	var links = document.links;
+	var i;
+	for (i=0; i<links.length; i++) {
+		if (links[i].href == url) {
+			return links[i];
+		}		
+	}
+	return null;
+} 
+
+function isElementVisible(elm) {
+	if(elm.style) {
+		if(elm.style.display == "none") {
+			return false;
+		}
+	}
+	if (elm.parentNode) {
+		return isElementVisible(elm.parentNode);
+	} else {
+		return true;
+	}
+}
+</script>
+
+</head>
+
+<body>
+    
+						 		<div id="1" class="header closed" onclick="toggle('c1',this)">
+   
+  		<a href="topic_000000000000032C.html" target="vbdocright">FBNCInject.Framework Reference</a>
+ 
+		</div>
+     <div id="c1" class="item" style="display:none">
+		
+     
+
+       <div id="2" class="header closed" onclick="toggle('c2',this)">
+    <a href="topic_0000000000000000.html" target="vbdocright">FBNCInject.Framework Namespace</a>
+    </div>
+    <div id="c2" class="item" style="display:none">
+		
+
+						    <div id="3" class="header closed" onclick="toggle('c3',this)">
+    <a href="topic_0000000000000001.html" target="vbdocright">ControlChars Class</a>
+    </div>
+    <div id="c3" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000001_members--.html" target="vbdocright">ControlChars Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="4" class="header closed" onclick="toggle('c4',this)">
+    <a href="topic_0000000000000001_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c4" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="5" class="header closed" onclick="toggle('c5',this)">
+    <a href="topic_0000000000000002.html" target="vbdocright">Extension Class</a>
+    </div>
+    <div id="c5" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000002_members--.html" target="vbdocright">Extension Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="6" class="header closed" onclick="toggle('c6',this)">
+    <a href="topic_0000000000000002_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c6" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_0000000000000006.html" target="vbdocright">GenerateUniqueID Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000007.html" target="vbdocright">GenerateUniqueIDFromDate Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000005.html" target="vbdocright">IsDate Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000004.html" target="vbdocright">IsNumeric Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000003.html" target="vbdocright">IsNumeric2 Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="7" class="header closed" onclick="toggle('c7',this)">
+    <a href="topic_0000000000000091.html" target="vbdocright">InjectGlobal Class</a>
+    </div>
+    <div id="c7" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000091_members--.html" target="vbdocright">InjectGlobal Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="8" class="header closed" onclick="toggle('c8',this)">
+    <a href="topic_0000000000000091_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c8" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000095.html" target="vbdocright">DaysBetween Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000092.html" target="vbdocright">GetIPv4Address Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000094.html" target="vbdocright">IsDate Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000096.html" target="vbdocright">IsValidDate Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000093.html" target="vbdocright">ToFinacleDate Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="9" class="header closed" onclick="toggle('c9',this)">
+    <a href="topic_000000000000029C.html" target="vbdocright">SysConfig Class</a>
+    </div>
+    <div id="c9" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000029C_members--.html" target="vbdocright">SysConfig Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="10" class="header closed" onclick="toggle('c10',this)">
+    <a href="topic_000000000000029C_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c10" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002A0.html" target="vbdocright">AppFolder Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000029E.html" target="vbdocright">AppMode Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000029F.html" target="vbdocright">AppName Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000029D.html" target="vbdocright">TestMode Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="11" class="header closed" onclick="toggle('c11',this)">
+    <a href="topic_000000000000029C_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c11" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="12" class="header closed" onclick="toggle('c12',this)">
+    <a href="topic_0000000000000008.html" target="vbdocright">FBNCInject.Framework.DataAccess Namespace</a>
+    </div>
+    <div id="c12" class="item" style="display:none">
+		
+
+						    <div id="13" class="header closed" onclick="toggle('c13',this)">
+    <a href="topic_0000000000000009.html" target="vbdocright">ADOExtensions Class</a>
+    </div>
+    <div id="c13" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000009_members--.html" target="vbdocright">ADOExtensions Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000000A_overloads--.html" target="vbdocright">ADOExtensions Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="14" class="header closed" onclick="toggle('c14',this)">
+    <a href="topic_0000000000000009_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c14" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_0000000000000011.html" target="vbdocright">ExecuteMany Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000012.html" target="vbdocright">ExecuteQuery Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000C.html" target="vbdocright">ExecuteScalar Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000013_overloads--.html" target="vbdocright">Insert&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000016.html" target="vbdocright">InsertRecord&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000017.html" target="vbdocright">InsertRecords&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000E.html" target="vbdocright">LoadDataTable Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000D.html" target="vbdocright">LoadQueryData&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000010.html" target="vbdocright">RecordExists Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000000F.html" target="vbdocright">RunQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000014.html" target="vbdocright">Update&lt;T&gt; Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="15" class="header closed" onclick="toggle('c15',this)">
+    <a href="topic_0000000000000019.html" target="vbdocright">ADOOleDbExtensions Class</a>
+    </div>
+    <div id="c15" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000019_members--.html" target="vbdocright">ADOOleDbExtensions Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000001A_overloads--.html" target="vbdocright">ADOOleDbExtensions Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="16" class="header closed" onclick="toggle('c16',this)">
+    <a href="topic_0000000000000019_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c16" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000024.html" target="vbdocright">BuildUpdateQuery&lt;T&gt; Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000021.html" target="vbdocright">ExecuteMany Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000022.html" target="vbdocright">ExecuteQuery Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001C.html" target="vbdocright">ExecuteScalar Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000023_overloads--.html" target="vbdocright">Insert&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000027.html" target="vbdocright">InsertRecord&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000028.html" target="vbdocright">InsertRecords&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001E.html" target="vbdocright">LoadDataTable Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001D.html" target="vbdocright">LoadQueryData&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000020.html" target="vbdocright">RecordExists Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000001F.html" target="vbdocright">RunQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000025.html" target="vbdocright">Update&lt;T&gt; Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="17" class="header closed" onclick="toggle('c17',this)">
+    <a href="topic_000000000000002A.html" target="vbdocright">ADOOracleExtensions Class</a>
+    </div>
+    <div id="c17" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000002A_members--.html" target="vbdocright">ADOOracleExtensions Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000002B_overloads--.html" target="vbdocright">ADOOracleExtensions Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="18" class="header closed" onclick="toggle('c18',this)">
+    <a href="topic_000000000000002A_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c18" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000037.html" target="vbdocright">BuildUpdateQuery&lt;T&gt; Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000034.html" target="vbdocright">ExecuteMany Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000035.html" target="vbdocright">ExecuteQuery Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002D.html" target="vbdocright">ExecuteScalar Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000036_overloads--.html" target="vbdocright">Insert&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000003A.html" target="vbdocright">InsertRecord&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000003B.html" target="vbdocright">InsertRecords&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002F.html" target="vbdocright">LoadData Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000031.html" target="vbdocright">LoadDataTable Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002E.html" target="vbdocright">LoadQueryData&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000030.html" target="vbdocright">LoadRecords Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000033.html" target="vbdocright">RecordExists Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000032.html" target="vbdocright">RunQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000038.html" target="vbdocright">Update&lt;T&gt; Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="19" class="header closed" onclick="toggle('c19',this)">
+    <a href="topic_000000000000003D.html" target="vbdocright">ADOSqlExtensions Class</a>
+    </div>
+    <div id="c19" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000003D_members--.html" target="vbdocright">ADOSqlExtensions Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000003E_overloads--.html" target="vbdocright">ADOSqlExtensions Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="20" class="header closed" onclick="toggle('c20',this)">
+    <a href="topic_000000000000003D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c20" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000048.html" target="vbdocright">BuildUpdateQuery&lt;T&gt; Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000045.html" target="vbdocright">ExecuteMany Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000046.html" target="vbdocright">ExecuteQuery Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000040.html" target="vbdocright">ExecuteScalar Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000047_overloads--.html" target="vbdocright">Insert&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004B.html" target="vbdocright">InsertRecord&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004C.html" target="vbdocright">InsertRecords&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000042.html" target="vbdocright">LoadDataTable Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000041.html" target="vbdocright">LoadQueryData&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000044.html" target="vbdocright">RecordExists Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000043.html" target="vbdocright">RunQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000049.html" target="vbdocright">Update&lt;T&gt; Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="21" class="header closed" onclick="toggle('c21',this)">
+    <a href="topic_0000000000000055.html" target="vbdocright">CollectionHelper Class</a>
+    </div>
+    <div id="c21" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_0000000000000055_members--.html" target="vbdocright">CollectionHelper Members</a></div>
+
+
+						    <div id="22" class="header closed" onclick="toggle('c22',this)">
+    <a href="topic_000000000000006C.html" target="vbdocright">PropInfo Class</a>
+    </div>
+    <div id="c22" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000006C_members--.html" target="vbdocright">PropInfo Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="23" class="header closed" onclick="toggle('c23',this)">
+    <a href="topic_000000000000006C_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c23" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000006D.html" target="vbdocright">NameKey Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006E.html" target="vbdocright">Value Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="24" class="header closed" onclick="toggle('c24',this)">
+    <a href="topic_000000000000006C_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c24" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="25" class="header closed" onclick="toggle('c25',this)">
+    <a href="topic_0000000000000055_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c25" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000056_overloads--.html" target="vbdocright">ConvertTo&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005C_overloads--.html" target="vbdocright">ConvertToObjList&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000059.html" target="vbdocright">CreateItem&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005B.html" target="vbdocright">CreateObj&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005A.html" target="vbdocright">CreateTable&lt;T&gt; Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000069_overloads--.html" target="vbdocright">Insert&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000065_overloads--.html" target="vbdocright">InsertObject&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000067_overloads--.html" target="vbdocright">InsertRecord&lt;T&gt; Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_000000000000006B.html" target="vbdocright">doIT Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005F_overloads--.html" target="vbdocright">getObjectInfo&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000061_overloads--.html" target="vbdocright">getPropertyInfo&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000063_overloads--.html" target="vbdocright">getPropertyInfos&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005E.html" target="vbdocright">getTableStructure Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="26" class="header closed" onclick="toggle('c26',this)">
+    <a href="topic_000000000000004E.html" target="vbdocright">DALExtension Class</a>
+    </div>
+    <div id="c26" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000004E_members--.html" target="vbdocright">DALExtension Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000004F.html" target="vbdocright">DALExtension Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="27" class="header closed" onclick="toggle('c27',this)">
+    <a href="topic_000000000000004E_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c27" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000051.html" target="vbdocright">IsNullableType Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000053.html" target="vbdocright">ToDataSet2&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000050.html" target="vbdocright">ToDataSet&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000054.html" target="vbdocright">ToDataTable2&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000052.html" target="vbdocright">ToDataTable&lt;T&gt; Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="28" class="header closed" onclick="toggle('c28',this)">
+    <a href="topic_000000000000006F.html" target="vbdocright">DALExtensions Class</a>
+    </div>
+    <div id="c28" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_000000000000006F_members--.html" target="vbdocright">DALExtensions Members</a></div>
+
+
+						    <div id="29" class="header closed" onclick="toggle('c29',this)">
+    <a href="topic_0000000000000075.html" target="vbdocright">CollectionHelper Class</a>
+    </div>
+    <div id="c29" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000075_members--.html" target="vbdocright">CollectionHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="30" class="header closed" onclick="toggle('c30',this)">
+    <a href="topic_0000000000000075_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c30" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000076_overloads--.html" target="vbdocright">ConvertTo&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000079.html" target="vbdocright">CreateItem&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000007A.html" target="vbdocright">CreateTable&lt;T&gt; Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000070.html" target="vbdocright">DALExtensions Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="31" class="header closed" onclick="toggle('c31',this)">
+    <a href="topic_000000000000006F_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c31" class="item" style="display:none">
+		
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000073.html" target="vbdocright">ToDataSet2&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000071.html" target="vbdocright">ToDataSet&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000074.html" target="vbdocright">ToDataTable2&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000072.html" target="vbdocright">ToDataTable&lt;T&gt; Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="32" class="header closed" onclick="toggle('c32',this)">
+    <a href="topic_000000000000007B.html" target="vbdocright">DALThreadExtensions Class</a>
+    </div>
+    <div id="c32" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_000000000000007B_members--.html" target="vbdocright">DALThreadExtensions Members</a></div>
+
+
+						    <div id="33" class="header closed" onclick="toggle('c33',this)">
+    <a href="topic_0000000000000081.html" target="vbdocright">ThreadCollectionHelper Class</a>
+    </div>
+    <div id="c33" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000081_members--.html" target="vbdocright">ThreadCollectionHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="34" class="header closed" onclick="toggle('c34',this)">
+    <a href="topic_0000000000000081_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c34" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000082_overloads--.html" target="vbdocright">ConvertTo&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000085.html" target="vbdocright">CreateItem&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000086.html" target="vbdocright">CreateTable&lt;T&gt; Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000007C.html" target="vbdocright">DALThreadExtensions Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="35" class="header closed" onclick="toggle('c35',this)">
+    <a href="topic_000000000000007B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c35" class="item" style="display:none">
+		
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_000000000000007F.html" target="vbdocright">ToDataSet2&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000007D.html" target="vbdocright">ToDataSet&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000080.html" target="vbdocright">ToDataTable2&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000007E.html" target="vbdocright">ToDataTable&lt;T&gt; Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="36" class="header closed" onclick="toggle('c36',this)">
+    <a href="topic_0000000000000087.html" target="vbdocright">PetaProxy Class</a>
+    </div>
+    <div id="c36" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000087_members--.html" target="vbdocright">PetaProxy Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000088.html" target="vbdocright">PetaProxy Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="37" class="header closed" onclick="toggle('c37',this)">
+    <a href="topic_0000000000000087_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c37" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="38" class="header closed" onclick="toggle('c38',this)">
+    <a href="topic_0000000000000089.html" target="vbdocright">FBNCInject.Framework.Entities Namespace</a>
+    </div>
+    <div id="c38" class="item" style="display:none">
+		
+
+						    <div id="39" class="header closed" onclick="toggle('c39',this)">
+    <a href="topic_000000000000008A.html" target="vbdocright">TrailItem Class</a>
+    </div>
+    <div id="c39" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000008A_members--.html" target="vbdocright">TrailItem Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000008B_overloads--.html" target="vbdocright">TrailItem Constructor </a></div>
+
+		
+		
+
+
+		    <div id="40" class="header closed" onclick="toggle('c40',this)">
+    <a href="topic_000000000000008A_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c40" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000008E.html" target="vbdocright">Name Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000090.html" target="vbdocright">ValueAfter Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000008F.html" target="vbdocright">ValueBefore Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="41" class="header closed" onclick="toggle('c41',this)">
+    <a href="topic_000000000000008A_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c41" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="42" class="header closed" onclick="toggle('c42',this)">
+    <a href="topic_000000000000025D.html" target="vbdocright">FBNCInject.Framework.Security Namespace</a>
+    </div>
+    <div id="c42" class="item" style="display:none">
+		
+
+						    <div id="43" class="header closed" onclick="toggle('c43',this)">
+    <a href="topic_000000000000025E.html" target="vbdocright">Crypto Class</a>
+    </div>
+    <div id="c43" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000025E_members--.html" target="vbdocright">Crypto Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="44" class="header closed" onclick="toggle('c44',this)">
+    <a href="topic_000000000000025E_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c44" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000262.html" target="vbdocright">Content Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000263.html" target="vbdocright">CryptoException Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000261.html" target="vbdocright">Encoding Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000260.html" target="vbdocright">EncryptionAlgorithm Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000264.html" target="vbdocright">IsHashAlgorithm Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000025F.html" target="vbdocright">Key Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="45" class="header closed" onclick="toggle('c45',this)">
+    <a href="topic_000000000000025E_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c45" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000026A.html" target="vbdocright">Clear Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000268.html" target="vbdocright">DecryptFile Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000266.html" target="vbdocright">DecryptString Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000267.html" target="vbdocright">EncryptFile Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000265.html" target="vbdocright">EncryptString Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000269.html" target="vbdocright">GenerateHash Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="46" class="header closed" onclick="toggle('c46',this)">
+    <a href="topic_000000000000026B.html" target="vbdocright">DES Class</a>
+    </div>
+    <div id="c46" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_000000000000026B_members--.html" target="vbdocright">DES Members</a></div>
+
+
+						    <div id="47" class="header closed" onclick="toggle('c47',this)">
+    <a href="topic_0000000000000278.html" target="vbdocright">KryptoResultFile Class</a>
+    </div>
+    <div id="c47" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000278_members--.html" target="vbdocright">KryptoResultFile Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="48" class="header closed" onclick="toggle('c48',this)">
+    <a href="topic_0000000000000278_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c48" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000279.html" target="vbdocright">Key Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000027A.html" target="vbdocright">OutputFilePath Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="49" class="header closed" onclick="toggle('c49',this)">
+    <a href="topic_0000000000000278_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c49" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="50" class="header closed" onclick="toggle('c50',this)">
+    <a href="topic_000000000000026C.html" target="vbdocright">KryptoResultText Class</a>
+    </div>
+    <div id="c50" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000026C_members--.html" target="vbdocright">KryptoResultText Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="51" class="header closed" onclick="toggle('c51',this)">
+    <a href="topic_000000000000026C_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c51" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000026D.html" target="vbdocright">Key Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000026E.html" target="vbdocright">StrResult Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="52" class="header closed" onclick="toggle('c52',this)">
+    <a href="topic_000000000000026C_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c52" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="53" class="header closed" onclick="toggle('c53',this)">
+    <a href="topic_000000000000026B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c53" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000272.html" target="vbdocright">Decrypt Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000277.html" target="vbdocright">DecryptFile Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000270.html" target="vbdocright">Decryption Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000275.html" target="vbdocright">DekryptFile Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000271.html" target="vbdocright">Encrypt Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000276.html" target="vbdocright">EncryptFile Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000026F.html" target="vbdocright">Encryption Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000274.html" target="vbdocright">EnkryptFile Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000273.html" target="vbdocright">GenerateKey Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_000000000000027B.html" target="vbdocright">TestFileEncryption Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="54" class="header closed" onclick="toggle('c54',this)">
+    <a href="topic_0000000000000283.html" target="vbdocright">FBNCInject.Framework.Services Namespace</a>
+    </div>
+    <div id="c54" class="item" style="display:none">
+		
+
+						    <div id="55" class="header closed" onclick="toggle('c55',this)">
+    <a href="topic_0000000000000284.html" target="vbdocright">EmailService Class</a>
+    </div>
+    <div id="c55" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000284_members--.html" target="vbdocright">EmailService Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="56" class="header closed" onclick="toggle('c56',this)">
+    <a href="topic_0000000000000284_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c56" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000288.html" target="vbdocright">Append Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="57" class="header closed" onclick="toggle('c57',this)">
+    <a href="topic_0000000000000284_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c57" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000287.html" target="vbdocright">ReadHtmlFile Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000289.html" target="vbdocright">SendEmailAlert Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000028A.html" target="vbdocright">SendMailAlert Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000286.html" target="vbdocright">getHtmlFilePath Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000285.html" target="vbdocright">isEmail Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="58" class="header closed" onclick="toggle('c58',this)">
+    <a href="topic_000000000000028E.html" target="vbdocright">NetworkService Class</a>
+    </div>
+    <div id="c58" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000028E_members--.html" target="vbdocright">NetworkService Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000290_overloads--.html" target="vbdocright">NetworkService Constructor </a></div>
+
+		
+		
+
+
+		    <div id="59" class="header closed" onclick="toggle('c59',this)">
+    <a href="topic_000000000000028E_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c59" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000028F.html" target="vbdocright">serverInfo Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="60" class="header closed" onclick="toggle('c60',this)">
+    <a href="topic_000000000000028E_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c60" class="item" style="display:none">
+		
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000294.html" target="vbdocright">GetHostName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000293.html" target="vbdocright">GetIPAddress Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000295.html" target="vbdocright">GetIPv4Address Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000292.html" target="vbdocright">GetServerInfo Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000296.html" target="vbdocright">getClientIPAddress Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000297.html" target="vbdocright">getClientIPAddressList Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000298.html" target="vbdocright">getClientIPHost Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="61" class="header closed" onclick="toggle('c61',this)">
+    <a href="topic_000000000000028B.html" target="vbdocright">ServerInfo Class</a>
+    </div>
+    <div id="c61" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000028B_members--.html" target="vbdocright">ServerInfo Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="62" class="header closed" onclick="toggle('c62',this)">
+    <a href="topic_000000000000028B_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c62" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000028C.html" target="vbdocright">HostName Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000028D.html" target="vbdocright">IPAddress Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="63" class="header closed" onclick="toggle('c63',this)">
+    <a href="topic_000000000000028B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c63" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="64" class="header closed" onclick="toggle('c64',this)">
+    <a href="topic_00000000000002A1.html" target="vbdocright">FBNCInject.Framework.Utilities Namespace</a>
+    </div>
+    <div id="c64" class="item" style="display:none">
+		
+
+						    <div id="65" class="header closed" onclick="toggle('c65',this)">
+    <a href="topic_00000000000002A2.html" target="vbdocright">AuditSerializer Class</a>
+    </div>
+    <div id="c65" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002A2_members--.html" target="vbdocright">AuditSerializer Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="66" class="header closed" onclick="toggle('c66',this)">
+    <a href="topic_00000000000002A2_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c66" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002AB.html" target="vbdocright">ConvertToList Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002A7_overloads--.html" target="vbdocright">DeSerializeObject Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002A8.html" target="vbdocright">Deserialize Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002A4.html" target="vbdocright">ObjectToString Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000002A9.html" target="vbdocright">SerializeData Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002A6.html" target="vbdocright">SerializeObject Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002A5.html" target="vbdocright">ToBinary Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002A3.html" target="vbdocright">ToByte Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="67" class="header closed" onclick="toggle('c67',this)">
+    <a href="topic_00000000000002AC.html" target="vbdocright">BatchUpload&lt;T&gt; Class</a>
+    </div>
+    <div id="c67" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002AC_members--.html" target="vbdocright">BatchUpload&lt;T&gt; Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="68" class="header closed" onclick="toggle('c68',this)">
+    <a href="topic_00000000000002AC_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c68" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002AD.html" target="vbdocright">ErrorDescription Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002AE.html" target="vbdocright">Obj Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="69" class="header closed" onclick="toggle('c69',this)">
+    <a href="topic_00000000000002AC_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c69" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="70" class="header closed" onclick="toggle('c70',this)">
+    <a href="topic_00000000000002BC.html" target="vbdocright">BinarySerializer Class</a>
+    </div>
+    <div id="c70" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002BC_members--.html" target="vbdocright">BinarySerializer Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="71" class="header closed" onclick="toggle('c71',this)">
+    <a href="topic_00000000000002BC_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c71" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002C2.html" target="vbdocright">ConvertToList Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002BE_overloads--.html" target="vbdocright">DeSerializeObject Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002BF.html" target="vbdocright">Deserialize Method</a></div>
+
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002C0.html" target="vbdocright">SerializeData Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002BD.html" target="vbdocright">SerializeObject Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="72" class="header closed" onclick="toggle('c72',this)">
+    <a href="topic_00000000000002D7.html" target="vbdocright">CSVHandler Class</a>
+    </div>
+    <div id="c72" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002D7_members--.html" target="vbdocright">CSVHandler Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="73" class="header closed" onclick="toggle('c73',this)">
+    <a href="topic_00000000000002D7_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c73" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002DA.html" target="vbdocright">CSVToDataTable Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000002D9.html" target="vbdocright">GetCSVData Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002D8.html" target="vbdocright">ReadCSV Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="74" class="header closed" onclick="toggle('c74',this)">
+    <a href="topic_00000000000002DB.html" target="vbdocright">CSVHelper Class</a>
+    </div>
+    <div id="c74" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002DB_members--.html" target="vbdocright">CSVHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="75" class="header closed" onclick="toggle('c75',this)">
+    <a href="topic_00000000000002DB_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c75" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000002DC.html" target="vbdocright">ExportToCSV Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="76" class="header closed" onclick="toggle('c76',this)">
+    <a href="topic_00000000000002DD.html" target="vbdocright">CSVReader Class</a>
+    </div>
+    <div id="c76" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002DD_members--.html" target="vbdocright">CSVReader Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000002DE_overloads--.html" target="vbdocright">CSVReader Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="77" class="header closed" onclick="toggle('c77',this)">
+    <a href="topic_00000000000002DD_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c77" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000002E0.html" target="vbdocright">GetCSVLine Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002E1.html" target="vbdocright">ReadFile Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="78" class="header closed" onclick="toggle('c78',this)">
+    <a href="topic_00000000000002E2.html" target="vbdocright">CSVWriter Class</a>
+    </div>
+    <div id="c78" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002E2_members--.html" target="vbdocright">CSVWriter Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000002E3_overloads--.html" target="vbdocright">CSVWriter Constructor </a></div>
+
+		
+		
+
+
+		    <div id="79" class="header closed" onclick="toggle('c79',this)">
+    <a href="topic_00000000000002E2_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c79" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002E9.html" target="vbdocright">HasColumnHeaders Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002E7.html" target="vbdocright">TextDelimiter Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002E8.html" target="vbdocright">TextQualifiers Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="80" class="header closed" onclick="toggle('c80',this)">
+    <a href="topic_00000000000002E2_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c80" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002EB.html" target="vbdocright">DataTableToCSV Method</a></div>
+
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002EA.html" target="vbdocright">Save Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="81" class="header closed" onclick="toggle('c81',this)">
+    <a href="topic_00000000000002EC.html" target="vbdocright">EnumBinder Class</a>
+    </div>
+    <div id="c81" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002EC_members--.html" target="vbdocright">EnumBinder Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="82" class="header closed" onclick="toggle('c82',this)">
+    <a href="topic_00000000000002EC_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c82" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000002ED.html" target="vbdocright">GetEnumNames Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002EE.html" target="vbdocright">LoadEnum Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="83" class="header closed" onclick="toggle('c83',this)">
+    <a href="topic_00000000000002EF.html" target="vbdocright">EnumDictionary Class</a>
+    </div>
+    <div id="c83" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_00000000000002EF_members--.html" target="vbdocright">EnumDictionary Members</a></div>
+
+
+						    <div id="84" class="header closed" onclick="toggle('c84',this)">
+    <a href="topic_00000000000002F2.html" target="vbdocright">EnumUtil&lt;T&gt; Class</a>
+    </div>
+    <div id="c84" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002F2_members--.html" target="vbdocright">EnumUtil&lt;T&gt; Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="85" class="header closed" onclick="toggle('c85',this)">
+    <a href="topic_00000000000002F2_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c85" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002F3.html" target="vbdocright">NumToEnum Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="86" class="header closed" onclick="toggle('c86',this)">
+    <a href="topic_00000000000002EF_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c86" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002F0.html" target="vbdocright">EnumID Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002F1.html" target="vbdocright">EnumText Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="87" class="header closed" onclick="toggle('c87',this)">
+    <a href="topic_00000000000002EF_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c87" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="88" class="header closed" onclick="toggle('c88',this)">
+    <a href="topic_00000000000002FD.html" target="vbdocright">ExcelHelper Class</a>
+    </div>
+    <div id="c88" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002FD_members--.html" target="vbdocright">ExcelHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="89" class="header closed" onclick="toggle('c89',this)">
+    <a href="topic_00000000000002FD_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c89" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000002FE.html" target="vbdocright">ExportToExcel Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="90" class="header closed" onclick="toggle('c90',this)">
+    <a href="topic_00000000000002FF.html" target="vbdocright">ExpressionBuilder Class</a>
+    </div>
+    <div id="c90" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002FF_members--.html" target="vbdocright">ExpressionBuilder Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="91" class="header closed" onclick="toggle('c91',this)">
+    <a href="topic_00000000000002FF_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c91" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_0000000000000300.html" target="vbdocright">GetExpression&lt;T&gt; Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="92" class="header closed" onclick="toggle('c92',this)">
+    <a href="topic_0000000000000301.html" target="vbdocright">Filter Class</a>
+    </div>
+    <div id="c92" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000301_members--.html" target="vbdocright">Filter Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="93" class="header closed" onclick="toggle('c93',this)">
+    <a href="topic_0000000000000301_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c93" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000303.html" target="vbdocright">Operation Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000302.html" target="vbdocright">PropertyName Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000304.html" target="vbdocright">Value Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="94" class="header closed" onclick="toggle('c94',this)">
+    <a href="topic_0000000000000301_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c94" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="95" class="header closed" onclick="toggle('c95',this)">
+    <a href="topic_0000000000000305.html" target="vbdocright">HTMLHelper Class</a>
+    </div>
+    <div id="c95" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000305_members--.html" target="vbdocright">HTMLHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="96" class="header closed" onclick="toggle('c96',this)">
+    <a href="topic_0000000000000305_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c96" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000306.html" target="vbdocright">ConvertToHtmlPage Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000307.html" target="vbdocright">ConvertToHtmlTable Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="97" class="header closed" onclick="toggle('c97',this)">
+    <a href="topic_0000000000000308.html" target="vbdocright">JSONHelper Class</a>
+    </div>
+    <div id="c97" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000308_members--.html" target="vbdocright">JSONHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="98" class="header closed" onclick="toggle('c98',this)">
+    <a href="topic_0000000000000308_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c98" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000309_overloads--.html" target="vbdocright">DownloadSerializedJSONDataAsync&lt;T&gt; Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="99" class="header closed" onclick="toggle('c99',this)">
+    <a href="topic_000000000000030B.html" target="vbdocright">Logger Class</a>
+    </div>
+    <div id="c99" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000030B_members--.html" target="vbdocright">Logger Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="100" class="header closed" onclick="toggle('c100',this)">
+    <a href="topic_000000000000030B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c100" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000310_overloads--.html" target="vbdocright">LogError Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_000000000000030D_overloads--.html" target="vbdocright">WriteErrorToEventLog Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000030C_overloads--.html" target="vbdocright">WriteToEventLog Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="101" class="header closed" onclick="toggle('c101',this)">
+    <a href="topic_0000000000000312.html" target="vbdocright">QueryBuilder Class</a>
+    </div>
+    <div id="c101" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000312_members--.html" target="vbdocright">QueryBuilder Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000313.html" target="vbdocright">QueryBuilder Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="102" class="header closed" onclick="toggle('c102',this)">
+    <a href="topic_0000000000000312_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c102" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000314.html" target="vbdocright">BuildQuery Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000315.html" target="vbdocright">BuildSql Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="103" class="header closed" onclick="toggle('c103',this)">
+    <a href="topic_00000000000002AF.html" target="vbdocright">SQLBatchUpload Class</a>
+    </div>
+    <div id="c103" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_00000000000002AF_members--.html" target="vbdocright">SQLBatchUpload Members</a></div>
+
+
+						    <div id="104" class="header closed" onclick="toggle('c104',this)">
+    <a href="topic_00000000000002B1.html" target="vbdocright">BulkUpload&lt;T&gt; Class</a>
+    </div>
+    <div id="c104" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002B1_members--.html" target="vbdocright">BulkUpload&lt;T&gt; Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="105" class="header closed" onclick="toggle('c105',this)">
+    <a href="topic_00000000000002B1_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c105" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002B3.html" target="vbdocright">BuildInsertQuery Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002B5_overloads--.html" target="vbdocright">InsertOneAtATimeWithoutTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002B7.html" target="vbdocright">InsertViaBulkCopyWithoutTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002B8.html" target="vbdocright">InsertViaSqlBulkCopyWithInternalTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002B4.html" target="vbdocright">InsertWithoutTransaction Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000002B2.html" target="vbdocright">ToDataTable Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000002B9.html" target="vbdocright">UploadExcel Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000002B0.html" target="vbdocright">SQLBatchUpload Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="106" class="header closed" onclick="toggle('c106',this)">
+    <a href="topic_00000000000002AF_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c106" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002BB.html" target="vbdocright">InsertViaSqlBulkCopyWithInternalTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002BA.html" target="vbdocright">InsertViaSqlBulkCopyWithoutTransaction Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="107" class="header closed" onclick="toggle('c107',this)">
+    <a href="topic_0000000000000316.html" target="vbdocright">SqlHelper Class</a>
+    </div>
+    <div id="c107" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_0000000000000316_members--.html" target="vbdocright">SqlHelper Members</a></div>
+
+
+						    <div id="108" class="header closed" onclick="toggle('c108',this)">
+    <a href="topic_0000000000000325.html" target="vbdocright">SqlJoinClause Class</a>
+    </div>
+    <div id="c108" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000325_members--.html" target="vbdocright">SqlJoinClause Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000326.html" target="vbdocright">SqlJoinClause Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="109" class="header closed" onclick="toggle('c109',this)">
+    <a href="topic_0000000000000325_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c109" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000327.html" target="vbdocright">On Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000317_overloads--.html" target="vbdocright">SqlHelper Constructor </a></div>
+
+		
+		
+
+
+		    <div id="110" class="header closed" onclick="toggle('c110',this)">
+    <a href="topic_0000000000000316_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c110" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000031B.html" target="vbdocright">Arguments Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000319.html" target="vbdocright">Builder Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000031A.html" target="vbdocright">SQL Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="111" class="header closed" onclick="toggle('c111',this)">
+    <a href="topic_0000000000000316_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c111" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000031C_overloads--.html" target="vbdocright">Append Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000321.html" target="vbdocright">From Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000322.html" target="vbdocright">GroupBy Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000323.html" target="vbdocright">InnerJoin Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000324.html" target="vbdocright">LeftJoin Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000031F.html" target="vbdocright">OrderBy Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000320.html" target="vbdocright">Select Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000031E.html" target="vbdocright">Where Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="112" class="header closed" onclick="toggle('c112',this)">
+    <a href="topic_0000000000000328.html" target="vbdocright">XmlHelper Class</a>
+    </div>
+    <div id="c112" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000328_members--.html" target="vbdocright">XmlHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="113" class="header closed" onclick="toggle('c113',this)">
+    <a href="topic_0000000000000328_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c113" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000032B.html" target="vbdocright">Deserialize&lt;T&gt; Method</a></div>
+
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000329_overloads--.html" target="vbdocright">Serialize&lt;T&gt; Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="114" class="header closed" onclick="toggle('c114',this)">
+    <a href="topic_00000000000002F4.html" target="vbdocright">FBNCInject.Framework.Utilities.Enums Namespace</a>
+    </div>
+    <div id="c114" class="item" style="display:none">
+		
+
+						    <div id="115" class="header closed" onclick="toggle('c115',this)">
+    <a href="topic_00000000000002F5.html" target="vbdocright">ItemCollection Class</a>
+    </div>
+    <div id="c115" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_00000000000002F5_members--.html" target="vbdocright">ItemCollection Members</a></div>
+
+
+						    <div id="116" class="header closed" onclick="toggle('c116',this)">
+    <a href="topic_00000000000002F8.html" target="vbdocright">ItemIterator Class</a>
+    </div>
+    <div id="c116" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002F8_members--.html" target="vbdocright">ItemIterator Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000002F9.html" target="vbdocright">ItemIterator Constructor </a></div>
+
+		
+		
+
+
+		    <div id="117" class="header closed" onclick="toggle('c117',this)">
+    <a href="topic_00000000000002F8_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c117" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002FB.html" target="vbdocright">Current Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="118" class="header closed" onclick="toggle('c118',this)">
+    <a href="topic_00000000000002F8_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c118" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002FA.html" target="vbdocright">MoveNext Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000002FC.html" target="vbdocright">Reset Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000002F6.html" target="vbdocright">ItemCollection Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="119" class="header closed" onclick="toggle('c119',this)">
+    <a href="topic_00000000000002F5_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c119" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000002F7.html" target="vbdocright">GetEnumerator Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="120" class="header closed" onclick="toggle('c120',this)">
+    <a href="topic_000000000000027C.html" target="vbdocright">FBNCInject.Framework.Utilities.Services Namespace</a>
+    </div>
+    <div id="c120" class="item" style="display:none">
+		
+
+						    <div id="121" class="header closed" onclick="toggle('c121',this)">
+    <a href="topic_000000000000027D.html" target="vbdocright">ADServices Class</a>
+    </div>
+    <div id="c121" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000027D_members--.html" target="vbdocright">ADServices Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="122" class="header closed" onclick="toggle('c122',this)">
+    <a href="topic_000000000000027D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c122" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_000000000000027E.html" target="vbdocright">GetUser Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000027F_overloads--.html" target="vbdocright">IsUserValid Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000281.html" target="vbdocright">LoginAuthenticate Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000282.html" target="vbdocright">getFullName Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="123" class="header closed" onclick="toggle('c123',this)">
+    <a href="topic_00000000000002C3.html" target="vbdocright">FBNCInject.Framework.UtilitiesHold Namespace</a>
+    </div>
+    <div id="c123" class="item" style="display:none">
+		
+
+						    <div id="124" class="header closed" onclick="toggle('c124',this)">
+    <a href="topic_00000000000002C4.html" target="vbdocright">BulkCopy Class</a>
+    </div>
+    <div id="c124" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000002C4_members--.html" target="vbdocright">BulkCopy Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000002C5.html" target="vbdocright">BulkCopy Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="125" class="header closed" onclick="toggle('c125',this)">
+    <a href="topic_00000000000002C4_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c125" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000002D3_overloads--.html" target="vbdocright">BulkCopyInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002D5_overloads--.html" target="vbdocright">BulkCopyInsert_WithForeignKey Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_00000000000002D2.html" target="vbdocright">GetNumericType Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000002D1.html" target="vbdocright">IsNumericType Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002C6.html" target="vbdocright">Method1 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002C7.html" target="vbdocright">Method12 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002C8.html" target="vbdocright">Method2 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002C9.html" target="vbdocright">Method22 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002CA.html" target="vbdocright">Method3 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002CB.html" target="vbdocright">Method32 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002CC.html" target="vbdocright">Method4 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002CD.html" target="vbdocright">Method42 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002CE.html" target="vbdocright">Method5 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002CF.html" target="vbdocright">Method52 Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000002D0.html" target="vbdocright">Method6 Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="126" class="header closed" onclick="toggle('c126',this)">
+    <a href="topic_0000000000000097.html" target="vbdocright">PetaPoco Namespace</a>
+    </div>
+    <div id="c126" class="item" style="display:none">
+		
+
+						    <div id="127" class="header closed" onclick="toggle('c127',this)">
+    <a href="topic_0000000000000198.html" target="vbdocright">AnsiString Class</a>
+    </div>
+    <div id="c127" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000198_members--.html" target="vbdocright">AnsiString Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000019A.html" target="vbdocright">AnsiString Constructor </a></div>
+
+		
+		
+
+
+		    <div id="128" class="header closed" onclick="toggle('c128',this)">
+    <a href="topic_0000000000000198_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c128" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000199.html" target="vbdocright">Value Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="129" class="header closed" onclick="toggle('c129',this)">
+    <a href="topic_0000000000000198_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c129" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="130" class="header closed" onclick="toggle('c130',this)">
+    <a href="topic_0000000000000186.html" target="vbdocright">ColumnAttribute Class</a>
+    </div>
+    <div id="c130" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000186_members--.html" target="vbdocright">ColumnAttribute Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000189_overloads--.html" target="vbdocright">ColumnAttribute Constructor </a></div>
+
+		
+		
+
+
+		    <div id="131" class="header closed" onclick="toggle('c131',this)">
+    <a href="topic_0000000000000186_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c131" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000188.html" target="vbdocright">ForceToUtc Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000187.html" target="vbdocright">Name Property</a></div>
+
+						
+			</div>
+		
+
+
+		    <div id="132" class="header closed" onclick="toggle('c132',this)">
+    <a href="topic_0000000000000186_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c132" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="133" class="header closed" onclick="toggle('c133',this)">
+    <a href="topic_000000000000019B.html" target="vbdocright">ColumnInfo Class</a>
+    </div>
+    <div id="c133" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000019B_members--.html" target="vbdocright">ColumnInfo Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="134" class="header closed" onclick="toggle('c134',this)">
+    <a href="topic_000000000000019B_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c134" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000019C.html" target="vbdocright">ColumnName Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000019E.html" target="vbdocright">ForceToUtc Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000019D.html" target="vbdocright">ResultColumn Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="135" class="header closed" onclick="toggle('c135',this)">
+    <a href="topic_000000000000019B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c135" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_000000000000019F.html" target="vbdocright">FromProperty Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="136" class="header closed" onclick="toggle('c136',this)">
+    <a href="topic_00000000000001A0.html" target="vbdocright">ConventionMapper Class</a>
+    </div>
+    <div id="c136" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001A0_members--.html" target="vbdocright">ConventionMapper Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000001AA.html" target="vbdocright">ConventionMapper Constructor </a></div>
+
+		
+		
+
+
+		    <div id="137" class="header closed" onclick="toggle('c137',this)">
+    <a href="topic_00000000000001A0_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c137" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001A8.html" target="vbdocright">FromDbConverter Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A1.html" target="vbdocright">GetSequenceName Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A2.html" target="vbdocright">InflectColumnName Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A3.html" target="vbdocright">InflectTableName Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A4.html" target="vbdocright">IsPrimaryKeyAutoIncrement Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A5.html" target="vbdocright">MapColumn Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A6.html" target="vbdocright">MapPrimaryKey Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A7.html" target="vbdocright">MapTable Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001A9.html" target="vbdocright">ToDbConverter Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="138" class="header closed" onclick="toggle('c138',this)">
+    <a href="topic_00000000000001A0_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c138" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000001AC.html" target="vbdocright">GetColumnInfo Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001AD.html" target="vbdocright">GetFromDbConverter Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001AB.html" target="vbdocright">GetTableInfo Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001AE.html" target="vbdocright">GetToDbConverter Method</a></div>
+
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="139" class="header closed" onclick="toggle('c139',this)">
+    <a href="topic_0000000000000098.html" target="vbdocright">Database Class</a>
+    </div>
+    <div id="c139" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000098_members--.html" target="vbdocright">Database Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000009A_overloads--.html" target="vbdocright">Database Constructor </a></div>
+
+		
+		
+
+
+		    <div id="140" class="header closed" onclick="toggle('c140',this)">
+    <a href="topic_0000000000000098_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c140" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000106.html" target="vbdocright">CommandTimeout Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A4.html" target="vbdocright">Connection Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000109.html" target="vbdocright">ConnectionString Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000103.html" target="vbdocright">DefaultMapper Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000104.html" target="vbdocright">EnableAutoSelect Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000105.html" target="vbdocright">EnableNamedParams Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000010A.html" target="vbdocright">IsolationLevel Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A1.html" target="vbdocright">KeepConnectionAlive Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FF.html" target="vbdocright">LastArgs Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000100.html" target="vbdocright">LastCommand Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FE.html" target="vbdocright">LastSQL Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000107.html" target="vbdocright">OneTimeCommandTimeout Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000108.html" target="vbdocright">Provider Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="141" class="header closed" onclick="toggle('c141',this)">
+    <a href="topic_0000000000000098_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c141" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000A9.html" target="vbdocright">AbortTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A8.html" target="vbdocright">BeginTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A3.html" target="vbdocright">CloseSharedConnection Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AA.html" target="vbdocright">CompleteTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AB.html" target="vbdocright">CreateCommand Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000DB_overloads--.html" target="vbdocright">Delete Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000DE_overloads--.html" target="vbdocright">Delete&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000099.html" target="vbdocright">Dispose Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000000B1_overloads--.html" target="vbdocright">Execute Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B3_overloads--.html" target="vbdocright">ExecuteScalar&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C1_overloads--.html" target="vbdocright">Exists&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E7_overloads--.html" target="vbdocright">Fetch&lt;T1, T2, T3, T4, TRet&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F3_overloads--.html" target="vbdocright">Fetch&lt;T1, T2, T3, T4&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E6_overloads--.html" target="vbdocright">Fetch&lt;T1, T2, T3, TRet&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F2_overloads--.html" target="vbdocright">Fetch&lt;T1, T2, T3&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E5_overloads--.html" target="vbdocright">Fetch&lt;T1, T2, TRet&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F1_overloads--.html" target="vbdocright">Fetch&lt;T1, T2&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B5_overloads--.html" target="vbdocright">Fetch&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C7_overloads--.html" target="vbdocright">First&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C8_overloads--.html" target="vbdocright">FirstOrDefault&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000101_overloads--.html" target="vbdocright">FormatCommand Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000000A5.html" target="vbdocright">GetTransaction Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000000CD_overloads--.html" target="vbdocright">Insert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E1_overloads--.html" target="vbdocright">IsNew Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A6.html" target="vbdocright">OnBeginTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AE.html" target="vbdocright">OnConnectionClosing Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AD.html" target="vbdocright">OnConnectionOpened Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A7.html" target="vbdocright">OnEndTransaction Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AC.html" target="vbdocright">OnException Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B0.html" target="vbdocright">OnExecutedCommand Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AF.html" target="vbdocright">OnExecutingCommand Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A2.html" target="vbdocright">OpenSharedConnection Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B7_overloads--.html" target="vbdocright">Page&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000EA_overloads--.html" target="vbdocright">Query&lt;T1, T2, T3, T4, TRet&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F6_overloads--.html" target="vbdocright">Query&lt;T1, T2, T3, T4&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E9_overloads--.html" target="vbdocright">Query&lt;T1, T2, T3, TRet&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F5_overloads--.html" target="vbdocright">Query&lt;T1, T2, T3&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E8_overloads--.html" target="vbdocright">Query&lt;T1, T2, TRet&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F4_overloads--.html" target="vbdocright">Query&lt;T1, T2&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BF_overloads--.html" target="vbdocright">Query&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FD.html" target="vbdocright">Query&lt;TRet&gt; Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000000E3_overloads--.html" target="vbdocright">Save Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C3_overloads--.html" target="vbdocright">Single&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C4_overloads--.html" target="vbdocright">SingleOrDefault&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BD_overloads--.html" target="vbdocright">SkipTake&lt;T&gt; Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000000D1_overloads--.html" target="vbdocright">Update Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D9_overloads--.html" target="vbdocright">Update&lt;T&gt; Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="142" class="header closed" onclick="toggle('c142',this)">
+    <a href="topic_000000000000010B.html" target="vbdocright">DatabaseConfiguration Class</a>
+    </div>
+    <div id="c142" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000010B_members--.html" target="vbdocright">DatabaseConfiguration Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="143" class="header closed" onclick="toggle('c143',this)">
+    <a href="topic_000000000000010B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c143" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000010C.html" target="vbdocright">Build Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="144" class="header closed" onclick="toggle('c144',this)">
+    <a href="topic_000000000000010D.html" target="vbdocright">DatabaseConfigurationExtensions Class</a>
+    </div>
+    <div id="c144" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000010D_members--.html" target="vbdocright">DatabaseConfigurationExtensions Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="145" class="header closed" onclick="toggle('c145',this)">
+    <a href="topic_000000000000010D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c145" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000011E.html" target="vbdocright">Create Method</a></div>
+
+						
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_000000000000010E.html" target="vbdocright">UsingCommandTimeout Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000117.html" target="vbdocright">UsingConnectionString Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000118.html" target="vbdocright">UsingConnectionStringName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000119_overloads--.html" target="vbdocright">UsingDefaultMapper&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000011D.html" target="vbdocright">UsingIsolationLevel Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000111_overloads--.html" target="vbdocright">UsingProvider&lt;T&gt; Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000115.html" target="vbdocright">WithAutoSelect Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000010F.html" target="vbdocright">WithNamedParams Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000116.html" target="vbdocright">WithoutAutoSelect Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000110.html" target="vbdocright">WithoutNamedParams Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="146" class="header closed" onclick="toggle('c146',this)">
+    <a href="topic_00000000000001AF.html" target="vbdocright">DatabaseProvider Class</a>
+    </div>
+    <div id="c146" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001AF_members--.html" target="vbdocright">DatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="147" class="header closed" onclick="toggle('c147',this)">
+    <a href="topic_00000000000001AF_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c147" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="148" class="header closed" onclick="toggle('c148',this)">
+    <a href="topic_00000000000001AF_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c148" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B8.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B4.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BC.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B9.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B0.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="149" class="header closed" onclick="toggle('c149',this)">
+    <a href="topic_000000000000020D.html" target="vbdocright">EnglishInflector Class</a>
+    </div>
+    <div id="c149" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000020D_members--.html" target="vbdocright">EnglishInflector Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="150" class="header closed" onclick="toggle('c150',this)">
+    <a href="topic_000000000000020D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c150" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000213.html" target="vbdocright">Camelise Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000215.html" target="vbdocright">Capitalise Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000219.html" target="vbdocright">Dasherise Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000211.html" target="vbdocright">Humanise Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000217_overloads--.html" target="vbdocright">Ordinalise Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000212.html" target="vbdocright">Pascalise Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000020E.html" target="vbdocright">Pluralise Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000020F.html" target="vbdocright">Singularise Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000210.html" target="vbdocright">Titleise Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000216.html" target="vbdocright">Uncapitalise Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000214.html" target="vbdocright">Underscore Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="151" class="header closed" onclick="toggle('c151',this)">
+    <a href="topic_000000000000018B.html" target="vbdocright">ExplicitColumnsAttribute Class</a>
+    </div>
+    <div id="c151" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000018B_members--.html" target="vbdocright">ExplicitColumnsAttribute Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="152" class="header closed" onclick="toggle('c152',this)">
+    <a href="topic_000000000000018B_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c152" class="item" style="display:none">
+		
+						
+			</div>
+		
+
+
+		    <div id="153" class="header closed" onclick="toggle('c153',this)">
+    <a href="topic_000000000000018B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c153" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="154" class="header closed" onclick="toggle('c154',this)">
+    <a href="topic_0000000000000228.html" target="vbdocright">FirebirdDbDatabaseProvider Class</a>
+    </div>
+    <div id="c154" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000228_members--.html" target="vbdocright">FirebirdDbDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="155" class="header closed" onclick="toggle('c155',this)">
+    <a href="topic_0000000000000228_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c155" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="156" class="header closed" onclick="toggle('c156',this)">
+    <a href="topic_0000000000000228_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c156" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000022A.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000022C.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000022B.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B9.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000229.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="157" class="header closed" onclick="toggle('c157',this)">
+    <a href="topic_000000000000018C.html" target="vbdocright">IgnoreAttribute Class</a>
+    </div>
+    <div id="c157" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000018C_members--.html" target="vbdocright">IgnoreAttribute Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="158" class="header closed" onclick="toggle('c158',this)">
+    <a href="topic_000000000000018C_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c158" class="item" style="display:none">
+		
+						
+			</div>
+		
+
+
+		    <div id="159" class="header closed" onclick="toggle('c159',this)">
+    <a href="topic_000000000000018C_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c159" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="160" class="header closed" onclick="toggle('c160',this)">
+    <a href="topic_0000000000000226.html" target="vbdocright">Inflector Class</a>
+    </div>
+    <div id="c160" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000226_members--.html" target="vbdocright">Inflector Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="161" class="header closed" onclick="toggle('c161',this)">
+    <a href="topic_0000000000000226_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c161" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000227.html" target="vbdocright">Instance Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="162" class="header closed" onclick="toggle('c162',this)">
+    <a href="topic_0000000000000226_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c162" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="163" class="header closed" onclick="toggle('c163',this)">
+    <a href="topic_00000000000001CF.html" target="vbdocright">Mappers Class</a>
+    </div>
+    <div id="c163" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001CF_members--.html" target="vbdocright">Mappers Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="164" class="header closed" onclick="toggle('c164',this)">
+    <a href="topic_00000000000001CF_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c164" class="item" style="display:none">
+		
+						
+						
+						  <div class="leaf"><a href="topic_00000000000001D6.html" target="vbdocright">GetMapper Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_00000000000001D0_overloads--.html" target="vbdocright">Register Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001D2_overloads--.html" target="vbdocright">Revoke Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001D5.html" target="vbdocright">RevokeAll Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="165" class="header closed" onclick="toggle('c165',this)">
+    <a href="topic_000000000000022D.html" target="vbdocright">MariaDbDatabaseProvider Class</a>
+    </div>
+    <div id="c165" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000022D_members--.html" target="vbdocright">MariaDbDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="166" class="header closed" onclick="toggle('c166',this)">
+    <a href="topic_000000000000022D_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c166" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="167" class="header closed" onclick="toggle('c167',this)">
+    <a href="topic_000000000000022D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c167" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B8.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000230.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BC.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000231.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000022E.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000022F.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="168" class="header closed" onclick="toggle('c168',this)">
+    <a href="topic_0000000000000232.html" target="vbdocright">MsAccessDbDatabaseProvider Class</a>
+    </div>
+    <div id="c168" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000232_members--.html" target="vbdocright">MsAccessDbDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="169" class="header closed" onclick="toggle('c169',this)">
+    <a href="topic_0000000000000232_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c169" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="170" class="header closed" onclick="toggle('c170',this)">
+    <a href="topic_0000000000000232_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c170" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000235.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B4.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000234.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B9.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000233.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="171" class="header closed" onclick="toggle('c171',this)">
+    <a href="topic_0000000000000236.html" target="vbdocright">MySqlDatabaseProvider Class</a>
+    </div>
+    <div id="c171" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000236_members--.html" target="vbdocright">MySqlDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="172" class="header closed" onclick="toggle('c172',this)">
+    <a href="topic_0000000000000236_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c172" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="173" class="header closed" onclick="toggle('c173',this)">
+    <a href="topic_0000000000000236_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c173" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B8.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000239.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BC.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000023A.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000237.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000238.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="174" class="header closed" onclick="toggle('c174',this)">
+    <a href="topic_000000000000023B.html" target="vbdocright">OracleDatabaseProvider Class</a>
+    </div>
+    <div id="c174" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000023B_members--.html" target="vbdocright">OracleDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="175" class="header closed" onclick="toggle('c175',this)">
+    <a href="topic_000000000000023B_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c175" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="176" class="header closed" onclick="toggle('c176',this)">
+    <a href="topic_000000000000023B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c176" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000023E.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000240.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000242.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000241.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B9.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000023F.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000023C.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000023D.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="177" class="header closed" onclick="toggle('c177',this)">
+    <a href="topic_0000000000000181.html" target="vbdocright">OracleProvider Class</a>
+    </div>
+    <div id="c177" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000181_members--.html" target="vbdocright">OracleProvider Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000182.html" target="vbdocright">OracleProvider Constructor </a></div>
+
+		
+		
+
+
+		    <div id="178" class="header closed" onclick="toggle('c178',this)">
+    <a href="topic_0000000000000181_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c178" class="item" style="display:none">
+		
+						
+			</div>
+		
+
+
+		    <div id="179" class="header closed" onclick="toggle('c179',this)">
+    <a href="topic_0000000000000181_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c179" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000184.html" target="vbdocright">CreateCommand Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000183.html" target="vbdocright">CreateConnection Method</a></div>
+
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000185.html" target="vbdocright">TypeFromAssembly Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="180" class="header closed" onclick="toggle('c180',this)">
+    <a href="topic_00000000000001D7.html" target="vbdocright">Page&lt;T&gt; Class</a>
+    </div>
+    <div id="c180" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001D7_members--.html" target="vbdocright">Page&lt;T&gt; Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="181" class="header closed" onclick="toggle('c181',this)">
+    <a href="topic_00000000000001D7_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c181" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001DD.html" target="vbdocright">Context Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001D8.html" target="vbdocright">CurrentPage Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001DC.html" target="vbdocright">Items Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001DB.html" target="vbdocright">ItemsPerPage Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001DA.html" target="vbdocright">TotalItems Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001D9.html" target="vbdocright">TotalPages Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="182" class="header closed" onclick="toggle('c182',this)">
+    <a href="topic_00000000000001D7_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c182" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="183" class="header closed" onclick="toggle('c183',this)">
+    <a href="topic_000000000000025A.html" target="vbdocright">PagingHelper Class</a>
+    </div>
+    <div id="c183" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000025A_members--.html" target="vbdocright">PagingHelper Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="184" class="header closed" onclick="toggle('c184',this)">
+    <a href="topic_000000000000025A_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c184" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000025B.html" target="vbdocright">Instance Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="185" class="header closed" onclick="toggle('c185',this)">
+    <a href="topic_000000000000025A_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c185" class="item" style="display:none">
+		
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_000000000000025C.html" target="vbdocright">SplitSQL Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="186" class="header closed" onclick="toggle('c186',this)">
+    <a href="topic_00000000000001DE.html" target="vbdocright">PocoColumn Class</a>
+    </div>
+    <div id="c186" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001DE_members--.html" target="vbdocright">PocoColumn Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="187" class="header closed" onclick="toggle('c187',this)">
+    <a href="topic_00000000000001DE_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c187" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001E1.html" target="vbdocright">ChangeType Method</a></div>
+
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000001E0.html" target="vbdocright">GetValue Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001DF.html" target="vbdocright">SetValue Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="188" class="header closed" onclick="toggle('c188',this)">
+    <a href="topic_00000000000001E2.html" target="vbdocright">PocoData Class</a>
+    </div>
+    <div id="c188" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001E2_members--.html" target="vbdocright">PocoData Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000001E6_overloads--.html" target="vbdocright">PocoData Constructor </a></div>
+
+		
+		
+
+
+		    <div id="189" class="header closed" onclick="toggle('c189',this)">
+    <a href="topic_00000000000001E2_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c189" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001E5.html" target="vbdocright">Columns Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001E3.html" target="vbdocright">QueryColumns Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001E4.html" target="vbdocright">TableInfo Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="190" class="header closed" onclick="toggle('c190',this)">
+    <a href="topic_00000000000001E2_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c190" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_00000000000001E8.html" target="vbdocright">ForObject Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001E9.html" target="vbdocright">ForType Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001EA.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="191" class="header closed" onclick="toggle('c191',this)">
+    <a href="topic_0000000000000243.html" target="vbdocright">PostgreSQLDatabaseProvider Class</a>
+    </div>
+    <div id="c191" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000243_members--.html" target="vbdocright">PostgreSQLDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="192" class="header closed" onclick="toggle('c192',this)">
+    <a href="topic_0000000000000243_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c192" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000244.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="193" class="header closed" onclick="toggle('c193',this)">
+    <a href="topic_0000000000000243_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c193" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B8.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000248.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000249.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000246.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000245.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000247.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="194" class="header closed" onclick="toggle('c194',this)">
+    <a href="topic_000000000000018D.html" target="vbdocright">PrimaryKeyAttribute Class</a>
+    </div>
+    <div id="c194" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000018D_members--.html" target="vbdocright">PrimaryKeyAttribute Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000191.html" target="vbdocright">PrimaryKeyAttribute Constructor </a></div>
+
+		
+		
+
+
+		    <div id="195" class="header closed" onclick="toggle('c195',this)">
+    <a href="topic_000000000000018D_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c195" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000190.html" target="vbdocright">AutoIncrement Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000018F.html" target="vbdocright">SequenceName Property</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000018E.html" target="vbdocright">Value Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="196" class="header closed" onclick="toggle('c196',this)">
+    <a href="topic_000000000000018D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c196" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="197" class="header closed" onclick="toggle('c197',this)">
+    <a href="topic_0000000000000192.html" target="vbdocright">ResultColumnAttribute Class</a>
+    </div>
+    <div id="c197" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000192_members--.html" target="vbdocright">ResultColumnAttribute Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000193_overloads--.html" target="vbdocright">ResultColumnAttribute Constructor </a></div>
+
+		
+		
+
+
+		    <div id="198" class="header closed" onclick="toggle('c198',this)">
+    <a href="topic_0000000000000192_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c198" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000188.html" target="vbdocright">ForceToUtc Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000187.html" target="vbdocright">Name Property</a></div>
+
+						
+			</div>
+		
+
+
+		    <div id="199" class="header closed" onclick="toggle('c199',this)">
+    <a href="topic_0000000000000192_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c199" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="200" class="header closed" onclick="toggle('c200',this)">
+    <a href="topic_000000000000024A.html" target="vbdocright">SQLiteDatabaseProvider Class</a>
+    </div>
+    <div id="c200" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000024A_members--.html" target="vbdocright">SQLiteDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="201" class="header closed" onclick="toggle('c201',this)">
+    <a href="topic_000000000000024A_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c201" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="202" class="header closed" onclick="toggle('c202',this)">
+    <a href="topic_000000000000024A_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c202" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B8.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B4.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000024D.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000024E.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000024B.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_000000000000024C.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="203" class="header closed" onclick="toggle('c203',this)">
+    <a href="topic_00000000000001EB.html" target="vbdocright">Sql Class</a>
+    </div>
+    <div id="c203" class="item" style="display:none">
+		
+ 		<div class="leaf"><a href="topic_00000000000001EB_members--.html" target="vbdocright">Sql Members</a></div>
+
+
+						    <div id="204" class="header closed" onclick="toggle('c204',this)">
+    <a href="topic_00000000000001FB.html" target="vbdocright">SqlJoinClause Class</a>
+    </div>
+    <div id="c204" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001FB_members--.html" target="vbdocright">SqlJoinClause Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000001FC.html" target="vbdocright">SqlJoinClause Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="205" class="header closed" onclick="toggle('c205',this)">
+    <a href="topic_00000000000001FB_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c205" class="item" style="display:none">
+		
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000001FD.html" target="vbdocright">On Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000001EF_overloads--.html" target="vbdocright">Sql Constructor </a></div>
+
+		
+		
+
+
+		    <div id="206" class="header closed" onclick="toggle('c206',this)">
+    <a href="topic_00000000000001EB_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c206" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001EE.html" target="vbdocright">Arguments Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001EC.html" target="vbdocright">Builder Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001ED.html" target="vbdocright">SQL Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="207" class="header closed" onclick="toggle('c207',this)">
+    <a href="topic_00000000000001EB_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c207" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001F1_overloads--.html" target="vbdocright">Append Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001F6.html" target="vbdocright">From Method</a></div>
+
+						
+						
+						  <div class="leaf"><a href="topic_00000000000001F7.html" target="vbdocright">GroupBy Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001F8.html" target="vbdocright">InnerJoin Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001F9.html" target="vbdocright">LeftJoin Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001F4.html" target="vbdocright">OrderBy Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001F5.html" target="vbdocright">Select Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001FA.html" target="vbdocright">ToString Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001F3.html" target="vbdocright">Where Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="208" class="header closed" onclick="toggle('c208',this)">
+    <a href="topic_000000000000024F.html" target="vbdocright">SqlServerCEDatabaseProviders Class</a>
+    </div>
+    <div id="c208" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000024F_members--.html" target="vbdocright">SqlServerCEDatabaseProviders Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="209" class="header closed" onclick="toggle('c209',this)">
+    <a href="topic_000000000000024F_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c209" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="210" class="header closed" onclick="toggle('c210',this)">
+    <a href="topic_000000000000024F_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c210" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000251.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B4.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000252.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B9.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000250.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001BB.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="211" class="header closed" onclick="toggle('c211',this)">
+    <a href="topic_0000000000000253.html" target="vbdocright">SqlServerDatabaseProvider Class</a>
+    </div>
+    <div id="c211" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000253_members--.html" target="vbdocright">SqlServerDatabaseProvider Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="212" class="header closed" onclick="toggle('c212',this)">
+    <a href="topic_0000000000000253_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c212" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000001B1.html" target="vbdocright">HasNativeGuidSupport Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B2.html" target="vbdocright">PagingUtility Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="213" class="header closed" onclick="toggle('c213',this)">
+    <a href="topic_0000000000000253_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c213" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000255.html" target="vbdocright">BuildPageQuery Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B4.html" target="vbdocright">EscapeSqlIdentifier Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B3.html" target="vbdocright">EscapeTableName Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000256.html" target="vbdocright">ExecuteInsert Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001BA.html" target="vbdocright">GetAutoIncrementExpression Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000257.html" target="vbdocright">GetExistsSql Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000254.html" target="vbdocright">GetFactory Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_0000000000000258.html" target="vbdocright">GetInsertOutputClause Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B5.html" target="vbdocright">GetParameterPrefix Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001B6.html" target="vbdocright">MapParameterValue Method</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000001B7.html" target="vbdocright">PreExecute Method</a></div>
+
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="214" class="header closed" onclick="toggle('c214',this)">
+    <a href="topic_00000000000001FE.html" target="vbdocright">StandardMapper Class</a>
+    </div>
+    <div id="c214" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000001FE_members--.html" target="vbdocright">StandardMapper Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="215" class="header closed" onclick="toggle('c215',this)">
+    <a href="topic_00000000000001FE_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c215" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_0000000000000200.html" target="vbdocright">GetColumnInfo Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000201.html" target="vbdocright">GetFromDbConverter Method</a></div>
+
+						
+						  <div class="leaf"><a href="topic_00000000000001FF.html" target="vbdocright">GetTableInfo Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000202.html" target="vbdocright">GetToDbConverter Method</a></div>
+
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="216" class="header closed" onclick="toggle('c216',this)">
+    <a href="topic_0000000000000203.html" target="vbdocright">TableInfo Class</a>
+    </div>
+    <div id="c216" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000203_members--.html" target="vbdocright">TableInfo Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="217" class="header closed" onclick="toggle('c217',this)">
+    <a href="topic_0000000000000203_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c217" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000206.html" target="vbdocright">AutoIncrement Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000205.html" target="vbdocright">PrimaryKey Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000207.html" target="vbdocright">SequenceName Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000204.html" target="vbdocright">TableName Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="218" class="header closed" onclick="toggle('c218',this)">
+    <a href="topic_0000000000000203_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c218" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_0000000000000208.html" target="vbdocright">FromPoco Method</a></div>
+
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="219" class="header closed" onclick="toggle('c219',this)">
+    <a href="topic_0000000000000195.html" target="vbdocright">TableNameAttribute Class</a>
+    </div>
+    <div id="c219" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000195_members--.html" target="vbdocright">TableNameAttribute Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000197.html" target="vbdocright">TableNameAttribute Constructor </a></div>
+
+		
+		
+
+
+		    <div id="220" class="header closed" onclick="toggle('c220',this)">
+    <a href="topic_0000000000000195_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c220" class="item" style="display:none">
+		
+						
+						  <div class="leaf"><a href="topic_0000000000000196.html" target="vbdocright">Value Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="221" class="header closed" onclick="toggle('c221',this)">
+    <a href="topic_0000000000000195_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c221" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="222" class="header closed" onclick="toggle('c222',this)">
+    <a href="topic_0000000000000209.html" target="vbdocright">Transaction Class</a>
+    </div>
+    <div id="c222" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000209_members--.html" target="vbdocright">Transaction Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000020A.html" target="vbdocright">Transaction Constructor </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="223" class="header closed" onclick="toggle('c223',this)">
+    <a href="topic_0000000000000209_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c223" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000020B.html" target="vbdocright">Complete Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000020C.html" target="vbdocright">Dispose Method</a></div>
+
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+ 
+
+  
+		</div>
+ 
+
+
+
+		
+		
+</body>
+</html>

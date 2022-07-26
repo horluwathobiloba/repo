@@ -1,0 +1,7 @@
+dist: bionic
+language: csharp
+mono: none
+dotnet: 2.2.105
+install:
+script:
+  - dotnet build slides/SlidesQuickstart.sln

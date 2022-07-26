@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.Account">
+    <Position X="0.5" Y="1" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAICIAAEAABAABAIQEFAAAAAAgAIAAAAAQIAAAAAiA=</HashCode>
+      <FileName>Entities\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.Bank">
+    <Position X="9.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAACAAAAIAAAAAAAAQACAA=</HashCode>
+      <FileName>Entities\Bank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.Notification" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIIAAAAAA=</HashCode>
+      <FileName>Entities\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.Payment" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAACKMCAEEABUAAEAGIAAAAAAIAAEAAoEEAAEA=</HashCode>
+      <FileName>Entities\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.PaymentChannel" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAIAgAAAIEAAQAAAAIACCAAABAAACACAAAAAEA=</HashCode>
+      <FileName>Entities\PaymentChannel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.PaymentGatewayService" Collapsed="true">
+    <Position X="8.25" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\PaymentGatewayService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.Product">
+    <Position X="4.75" Y="1" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAQIhAAAQhAgAEBQAAACAAIBABBAARAIQIQEBA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GLSubClassAccount" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.ProductFundingSource" Collapsed="true">
+    <Position X="13.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAABEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ProductFundingSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.ProductInterest" Collapsed="true">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAACAAEAAAACAQAAAAAAAAAAAAABAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Entities\ProductInterest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.ProductInterestPeriod" Collapsed="true">
+    <Position X="12.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgCAAAAAIAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ProductInterestPeriod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.ProductItemCategory" Collapsed="true">
+    <Position X="14" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Entities\ProductItemCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.TransactionService">
+    <Position X="2.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Entities\TransactionService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.ProductSettlementAccount">
+    <Position X="9.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAADAAAAAAAAA=</HashCode>
+      <FileName>Entities\ProductSettlementAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.Transaction" Collapsed="true">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAABEAAECAAAAwCAEACBAQggQAGAAAAAEAEACEA=</HashCode>
+      <FileName>Entities\Transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.VirtualAccount" Collapsed="true">
+    <Position X="12.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAAAAAAAAAAAAAAAAASAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Entities\VirtualAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.WishlistFundingSource" Collapsed="true">
+    <Position X="10.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\WishlistFundingSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RubyReloaded.WalletService.Domain.Entities.WithdrawalSetting" Collapsed="true">
+    <Position X="12.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAAg=</HashCode>
+      <FileName>Entities\WithdrawalSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

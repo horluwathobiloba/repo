@@ -1,0 +1,31 @@
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.409-buster
+ARG TOKEN
+
+ENV PATH "$PATH:/root/.dotnet/tools"
+
+RUN apt-get update && \
+    dotnet tool install --global dotnet-sonarscanner && \
+    DEBIAN_FRONTEND=noninteractive && \
+    apt-get -y install default-jre-headless
+
+COPY ["/RubyReloaded.WalletService/src/API/API.csproj", "/RubyReloaded.WalletService/src/API/"]
+COPY ["/RubyReloaded.WalletService/src/Domain/Domain.csproj", "/RubyReloaded.WalletService/src/Domain/"]
+COPY ["/RubyReloaded.WalletService/src/Application/Application.csproj", "/RubyReloaded.WalletService/src/Application/"]
+COPY ["/RubyReloaded.WalletService/src/Infrastructure/Infrastructure.csproj", "/RubyReloaded.WalletService/src/Infrastructure/"]
+COPY ["/ReventInject/ReventInject.csproj", "/ReventInject/ReventInject.csproj"]
+
+RUN dotnet restore "/RubyReloaded.WalletService/src/API/API.csproj"
+
+COPY RubyReloaded.WalletService/src/Domain /RubyReloaded.WalletService/src/Domain
+WORKDIR /RubyReloaded.WalletService/src/Domain
+
+RUN dotnet sonarscanner begin /k:"scanner-cache" /d:sonar.host.url="https://sonarqube.anelloh.com"  /d:sonar.login="$TOKEN" && \
+    dotnet build "Domain.csproj" -c Release -o /app/build && \
+    dotnet sonarscanner end /d:sonar.login="$TOKEN" && \
+    mv ~/.sonar/cache /opt/sonarcache && \
+    chmod -R 777 /opt/sonarcache
+
+WORKDIR /

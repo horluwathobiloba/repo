@@ -1,0 +1,56 @@
+﻿@model List<Models.UserFiles>
+@{
+    ViewBag.Title = "User Google drive view";
+}
+<div class="alert alert-success hide">
+    <strong>Success!</strong> @ViewBag.Message
+</div>
+<div class="alert alert-danger hide">
+    <strong>Error!</strong> Some error occured
+</div>
+<table class="table-striped table-responsive table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FileName</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Actions
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Download</a>
+                            @Ajax.ActionLink("Delete", "DeleteFile", new { fileId = item.FileID }, new AjaxOptions
+                            {
+                                OnSuccess = "ajaxOnSuccess()"
+                                                ,
+                                OnFailure = "ajaxOnFailure()"
+                            }, new { @class = "dropdown-item" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>
+        function ajaxOnSuccess() {
+            $(".alert-success").removeClass("hide");
+        }
+        function ajaxOnFailure() {
+            $(".alert-danger").removeClass("hide");
+        }
+    </script>
+
+}
+@* clientid 663699753584-0tki44v7e1j4sq5vmn5b4ocrttfm4ios.apps.googleusercontent.com
+    client sescret=IIN_I27ZT_oI4EoLryJs9Bz5
+*@

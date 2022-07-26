@@ -1,0 +1,24 @@
+﻿using FluentValidation;
+using OnyxDoc.FormBuilderService.Application.Common.Models;
+
+namespace OnyxDoc.FormBuilderService.Application.ControlPropertyItems.Commands
+{
+    public class CreateControlPropertyItemsCommandValidator : AbstractValidator<CreateControlPropertyItemsCommand>
+    {
+        public CreateControlPropertyItemsCommandValidator()
+        {
+            RuleFor(v => v.SubscriberId).GreaterThan(0).WithMessage("Subscriber must be specified!");
+            RuleFor(v => v.ControlPropertyId).GreaterThan(0).WithMessage("Document id must be specified!");
+            RuleFor(v => v.UserId).NotEmpty().WithMessage("User id must be specified!");
+        }
+    }
+
+    public class CreateControlPropertyItemRequestValidator : AbstractValidator<CreateControlPropertyItemRequest>
+    {
+        public CreateControlPropertyItemRequestValidator()
+        {
+            RuleFor(v => v.Index).GreaterThan(0).WithMessage("A valid control property item index must be specified!");
+            RuleFor(v => v.Value).NotEmpty().WithMessage("Control property item value must be specified!");
+        }
+    }
+}

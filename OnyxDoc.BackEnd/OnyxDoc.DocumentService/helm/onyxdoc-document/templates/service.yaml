@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "onyxdoc-document.fullname" . }}
+  labels:
+    {{- include "onyxdoc-document.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "onyxdoc-document.selectorLabels" . | nindent 4 }}

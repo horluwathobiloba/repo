@@ -1,0 +1,31 @@
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.409-buster
+ARG TOKEN
+
+ENV PATH "$PATH:/root/.dotnet/tools"
+
+RUN apt-get update && \
+    dotnet tool install --global dotnet-sonarscanner && \
+    DEBIAN_FRONTEND=noninteractive && \
+    apt-get -y install default-jre-headless
+
+COPY ["/RubyReloaded.AuthService/src/API/API.csproj", "/RubyReloaded.AuthService/src/API/"]
+COPY ["/RubyReloaded.AuthService/src/Domain/Domain.csproj", "/RubyReloaded.AuthService/src/Domain/"]
+COPY ["/RubyReloaded.AuthService/src/Application/Application.csproj", "/RubyReloaded.AuthService/src/Application/"]
+COPY ["/RubyReloaded.AuthService/src/Infrastructure/Infrastructure.csproj", "/RubyReloaded.AuthService/src/Infrastructure/"]
+COPY ["/ReventInject/ReventInject.csproj", "/ReventInject/ReventInject.csproj"]
+
+RUN dotnet restore "/RubyReloaded.AuthService/src/API/API.csproj"
+
+COPY RubyReloaded.AuthService/src/Domain /RubyReloaded.AuthService/src/Domain
+WORKDIR /RubyReloaded.AuthService/src/Domain
+
+RUN dotnet sonarscanner begin /k:"scanner-cache" /d:sonar.host.url="https://sonarqube.anelloh.com"  /d:sonar.login="$TOKEN" && \
+    dotnet build "Domain.csproj" -c Release -o /app/build && \
+    dotnet sonarscanner end /d:sonar.login="$TOKEN" && \
+    mv ~/.sonar/cache /opt/sonarcache && \
+    chmod -R 777 /opt/sonarcache
+
+WORKDIR /

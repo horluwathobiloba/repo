@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "rubyreloaded-subscription.fullname" . }}
+  labels:
+    {{- include "rubyreloaded-subscription.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "rubyreloaded-subscription.selectorLabels" . | nindent 4 }}

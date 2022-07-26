@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+<<<<<<< HEAD:OnyxDoc.SubscriptionService/tests/Application.UnitTests/Application.UnitTests.csproj
+    <RootNamespace>OnyxDoc.SubscriptionService.Application.UnitTests</RootNamespace>
+    <AssemblyName>OnyxDoc.SubscriptionService.Application.UnitTests</AssemblyName>
+=======
+    <RootNamespace>OnyxDoc.DocumentService.Application.UnitTests</RootNamespace>
+    <AssemblyName>OnyxDoc.DocumentService.Application.UnitTests</AssemblyName>
+>>>>>>> bc538261377da49ebc942042b220626ca139f0fd:OnyxDoc.DocumentService/tests/Application.UnitTests/Application.UnitTests.csproj
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Moq" Version="4.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Application\Application.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

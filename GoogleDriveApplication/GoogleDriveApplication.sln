@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleDriveApplication", "GoogleDriveApplication\GoogleDriveApplication.csproj", "{DF1AFA18-1571-4576-BCF8-AA618E3E3312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{7A784607-6538-4C39-AE37-1D555CD77FE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleDriveApi", "GoogleDriveApi\GoogleDriveApi.csproj", "{B3210985-5C1D-4524-95EC-6CDB2AAA5024}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF1AFA18-1571-4576-BCF8-AA618E3E3312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1AFA18-1571-4576-BCF8-AA618E3E3312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1AFA18-1571-4576-BCF8-AA618E3E3312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1AFA18-1571-4576-BCF8-AA618E3E3312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A784607-6538-4C39-AE37-1D555CD77FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A784607-6538-4C39-AE37-1D555CD77FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A784607-6538-4C39-AE37-1D555CD77FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A784607-6538-4C39-AE37-1D555CD77FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3210985-5C1D-4524-95EC-6CDB2AAA5024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3210985-5C1D-4524-95EC-6CDB2AAA5024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3210985-5C1D-4524-95EC-6CDB2AAA5024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3210985-5C1D-4524-95EC-6CDB2AAA5024}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {733E7E77-0335-44BF-A98D-824D349F3855}
+	EndGlobalSection
+EndGlobal

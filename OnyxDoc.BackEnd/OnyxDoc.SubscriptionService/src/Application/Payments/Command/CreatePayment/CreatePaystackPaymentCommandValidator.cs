@@ -1,0 +1,15 @@
+﻿using FluentValidation;
+
+namespace OnyxDoc.SubscriptionService.Application.Payments.Commands
+{
+    public class CreatePaystackPaymentCommandValidator : AbstractValidator<CreatePaystackPaymentCommand>
+    {
+        public CreatePaystackPaymentCommandValidator()
+        {
+            RuleFor(v => v.SubscriberId).NotEqual(0).WithMessage("Subscriber must be specified!");
+            RuleFor(v => v.SubscriptionNo).NotEmpty().WithMessage("Invalid subscription number specified!");
+            RuleFor(v => v.CurrencyCode).IsInEnum().WithMessage("Invalid Currency code specified!");
+            RuleFor(v => v.UserId).NotEmpty().WithMessage("User id must be specified!");
+        }
+    }
+}

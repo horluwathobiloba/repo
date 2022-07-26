@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "onyx-contract.fullname" . }}
+  labels:
+    {{- include "onyx-contract.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "onyx-contract.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "onyx-contract.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "onyx-contract.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          {{- with .Values.envVars }}
+          {{- range $key, $value := . }}
+          - name: {{ $key }}
+            value: {{ $value }}
+          {{- end }}
+          {{- end }}
+          {{- if and .Values.keyVault .Values.keyVault.enabled -}}
+          {{- $fullName := include "onyx-contract.fullname" . -}}
+          {{- range .Values.keyVault.secrets }}
+          - name: {{ .envVar }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ $fullName }}
+                key: {{ .key }}
+          {{- end }}
+          volumeMounts:
+          - name: secrets-store
+            mountPath: "/mnt/secrets-store"
+            readOnly: true
+          {{- end }}
+          ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          livenessProbe:
+            periodSeconds: 30
+            initialDelaySeconds: 30
+            timeoutSeconds: 15
+            httpGet:
+              path: /health
+              port: http
+          readinessProbe:
+            periodSeconds: 10
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+            httpGet:
+              path: /health
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- if and .Values.keyVault .Values.keyVault.enabled }}
+      volumes:
+      - name: secrets-store
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: {{ include "onyx-contract.fullname" . }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

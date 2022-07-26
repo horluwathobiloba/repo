@@ -1,0 +1,91 @@
+{
+    "CompanyName": "FISHLAND",
+    "CompanyLocation": "783 Pitkin Avenue, Leeper, South Dakota, 9282",
+    "Street": "Rutland Road, Tivoli, Washington",
+    "Zip_Code": 296454,
+  "AppUsers": [
+    {
+      "FirstName": "Upskillz",
+      "LastName": "SuperAdmin",
+      "IsActive": 1,
+      "Email": "superadmin@gmail.com",
+      "UserName": "SuperAdmin",
+      "PhoneNumber": "08165435267",
+      "PasswordHash": "Superadmin@123",
+      "EmailConfirmed": true
+    },
+    {
+      "FirstName": "Upskillz",
+      "LastName": "Admin",
+      "IsActive": 1,
+      "Email": "admin@gmail.com",
+      "UserName": "Admin",
+      "PhoneNumber": "0812434565",
+      "PasswordHash": "Admin@123",
+      "EmailConfirmed": true
+    },
+    {
+      "FirstName": "Upskillz",
+      "LastName": "User",
+      "IsActive": 1,
+      "Email": "user@gmail.com",
+      "UserName": "User",
+      "PhoneNumber": "0816431095",
+      "PasswordHash": "User@123",
+      "EmailConfirmed": true,
+      "Invoices": [
+        {
+          "InvoiceId": "b5c3b860-f80d-4ee3-bb30-e4b8e9c7f9ab",
+          "InvoiceNumber": 427377,
+          "InvoiceStatus": 1,
+          "InvoiceItems": [
+            {
+              "ServiceName": "PAINTER",
+              "Description": "cillum nisi commodo incididunt incididunt",
+              "Itemunit": 2,
+              "ItemPrice": 2516,
+              "ItemAmount": 3454
+            },
+            {
+              "ServiceName": "MEDIA",
+              "Description": "dolore nostrud velit ex eiusmod",
+              "Itemunit": 1,
+              "ItemPrice": 1293,
+              "ItemAmount": 4225
+            },
+            {
+              "ServiceName": "CLEANING",
+              "Description": "exercitation in quis occaecat sint",
+              "Itemunit": 2,
+              "ItemPrice": 1674,
+              "ItemAmount": 5254
+            },
+            {
+              "ServiceName": "PLUMBING",
+              "Description": "laboris nulla id enim ea",
+              "Itemunit": 2,
+              "ItemPrice": 3455,
+              "ItemAmount": 2543
+            },
+            {
+              "ServiceName": "PLUMBING",
+              "Description": "nostrud eu cupidatat cupidatat minim",
+              "Itemunit": 3,
+              "ItemPrice": 2676,
+              "ItemAmount": 5300
+            },
+            {
+              "ServiceName": "ELECTRICAL WORK",
+              "Description": "ea amet dolore esse do",
+              "Itemunit": 2,
+              "ItemPrice": 2751,
+              "ItemAmount": 5502
+            }
+          ],
+          "Issue_Date": "2018-06-01 03:53:00",
+          "Due_Date": "2018-08-04 02:31:50"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upskillz_invoice_mgt_api", "Upskillz_invoice_mgt_api\Upskillz_invoice_mgt_api.csproj", "{A556096F-6968-4238-92E6-738CDC80DA7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upskillz_invoice_mgt_Application", "Upskillz_invoice_mgt_Application\Upskillz_invoice_mgt_Application.csproj", "{DA223F16-58D4-468A-BE80-F635BE24D473}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upskillz_invoice_mgt_Domain", "Upskillz_invoice_mgt_Domain\Upskillz_invoice_mgt_Domain.csproj", "{81F9A658-EBDD-43CC-BA2B-E2206B3EDC3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upskillz_invoice_mgt_Infrastructure", "Upskillz_invoice_mgt_Infrastructure\Upskillz_invoice_mgt_Infrastructure.csproj", "{0A3F04A6-1192-4154-9A42-E2A486FBC100}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A556096F-6968-4238-92E6-738CDC80DA7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A556096F-6968-4238-92E6-738CDC80DA7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A556096F-6968-4238-92E6-738CDC80DA7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A556096F-6968-4238-92E6-738CDC80DA7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA223F16-58D4-468A-BE80-F635BE24D473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA223F16-58D4-468A-BE80-F635BE24D473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA223F16-58D4-468A-BE80-F635BE24D473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA223F16-58D4-468A-BE80-F635BE24D473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F9A658-EBDD-43CC-BA2B-E2206B3EDC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81F9A658-EBDD-43CC-BA2B-E2206B3EDC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81F9A658-EBDD-43CC-BA2B-E2206B3EDC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81F9A658-EBDD-43CC-BA2B-E2206B3EDC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3F04A6-1192-4154-9A42-E2A486FBC100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3F04A6-1192-4154-9A42-E2A486FBC100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3F04A6-1192-4154-9A42-E2A486FBC100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3F04A6-1192-4154-9A42-E2A486FBC100}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EAE29C8-2710-475A-944C-E5EDC81D9BA6}
+	EndGlobalSection
+EndGlobal

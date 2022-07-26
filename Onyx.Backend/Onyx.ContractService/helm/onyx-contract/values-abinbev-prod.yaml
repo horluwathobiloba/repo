@@ -1,0 +1,108 @@
+# Default values for onyx-contract.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+environment: rg-cms-project
+
+replicaCount: 1
+
+image:
+  repository: abinbevrevent.azurecr.io/onyx/contract-service
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+nameOverride: ""
+fullnameOverride: ""
+
+envVars:
+  Email__Url: http://utilityservice/api/EmailMessages/create
+  Email__AppName: International Breweries Plc
+  Email__BulkEmailUrl: http://utilityservice/api/EmailMessages/createbulkemail
+  Token__issuer: https://auth.ibcoral.com/
+  Token__aud: https://auth.ibcoral.com/
+  FileLocation__Images: https://ibcoral.com/images/
+  FileLocation__Templates: https://ibcoral.com/templates/
+  AuthService__AppName: Onyx.ContractService
+  AuthService__TokenApiUrl: https://auth.ibcoral.com/api/ApplicationAuth/login
+  AuthService__GetOrganisationApiUrl: https://auth.ibcoral.com/api/Organizations/getbyid/
+  AuthService__GetRolesApiUrl: https://auth.ibcoral.com/api/Roles/getbyorganizationid/
+  AuthService__GetUsersApiUrl: https://auth.ibcoral.com/api/Users/getbyorganizationid/
+  AuthService__GetRoleApiUrl: https://auth.ibcoral.com/api/Roles/getbyid/
+  AuthService__GetUserApiUrl: https://auth.ibcoral.com/api/Users/getbyid/
+  LoginPage: https://ibcoral.com/login
+  WebUrlSign: https://websign.ibcoral.com/
+  ApplicationName: IBCoral
+
+keyVault:
+  enabled: true
+  name: abinbev-cms
+  subscriptionId: "<set by pipeline>"
+  tenantId: "<set by pipeline>"
+  secrets:
+  - key: onyx-contract-connectionStringsDefaultConnection
+    envVar: ConnectionStrings__DefaultConnection
+  - key: onyx-contract-blobConnectionStringsAccessKey
+    envVar: BlobConnectionStrings__AccessKey
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podLabels:
+  aadpodidbinding: azure-key-vault-client
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: caddy
+  hosts:
+  - host: contract.ibcoral.com
+    paths:
+    - path: /
+      type: Prefix
+
+  tls: null
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector:
+  kubernetes.io/os: linux
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,62 @@
+trigger:
+  branches:
+    include:
+    - dev
+  paths:
+    include:
+    - OnyxDoc.SubscriptionService/src/API/Dockerfile.deps
+    - OnyxDoc.SubscriptionService/src/API/API.csproj
+    - OnyxDoc.SubscriptionService/src/Domain/Domain.csproj
+    - OnyxDoc.SubscriptionService/src/Application/Application.csproj
+    - OnyxDoc.SubscriptionService/src/Infrastructure/Infrastructure.csproj
+    - ReventInject/ReventInject.csproj
+
+pool:
+  name: DedicatedPipelines
+
+variables:
+- group: shared-keyvault-secrets
+- name: azureSubscription
+  value: Flowmono Subscription
+- name: dockerRegistryEndpoint
+  value: flowmono
+- name: dockerImageName
+  value: flowmono.azurecr.io/subscription-service-deps
+- name: dockerImageTag
+  value: $(Build.SourceBranchName)-$(Build.BuildId)
+- name: basePath
+  value: OnyxDoc.SubscriptionService
+- name: DOCKER_BUILDKIT
+  value: 1
+
+steps:
+- task: Docker@1
+  displayName: Build Docker Image
+  inputs:
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: $(dockerRegistryEndpoint)
+    dockerFile: $(basePath)/src/API/Dockerfile.deps
+    buildContext: '.'
+    useDefaultContext: false
+    imageName: $(dockerImageName):$(dockerImageTag)
+    includeSourceTags: true
+    includeLatestTag: true
+    arguments: "--build-arg TOKEN=$(sonarqube-pushToken)"
+
+- task: Docker@1
+  displayName: Push Current Version
+  inputs:
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: $(dockerRegistryEndpoint)
+    command: Push an image
+    imageName: $(dockerImageName):$(dockerImageTag)
+    includeSourceTags: true
+
+- task: Docker@1
+  displayName: Push Latest
+  inputs:
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: $(dockerRegistryEndpoint)
+    command: Push an image
+    imageName: $(dockerImageName):latest
+    includeSourceTags: true

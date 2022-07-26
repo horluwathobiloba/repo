@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="METHODS&#xD;&#xA;&#xD;&#xA;[HttpPost]&#xD;&#xA;CreateFolder&#xD;&#xA;&#xD;&#xA;[HttpPatch]&#xD;&#xA;Edit&#xD;&#xA;&#xD;&#xA;[HttpPatch]&#xD;&#xA;Move&#xD;&#xA;- Get Document by Id&#xD;&#xA;- Change parent Id to the one in the location&#xD;&#xA;&#xD;&#xA;[HttpDelete]&#xD;&#xA;Delete&#xD;&#xA;- Get Document by Id&#xD;&#xA;- Change IsDeleted to true&#xD;&#xA;&#xD;&#xA;[HttpPatch]&#xD;&#xA;Archive&#xD;&#xA;- Get Document by Id&#xD;&#xA;- Change IsAchived to True&#xD;&#xA;&#xD;&#xA;[HttpPatch]&#xD;&#xA;Duplicate&#xD;&#xA;- Get Document by Id&#xD;&#xA;- Set IsDuplicate to true&#xD;&#xA;&#xD;&#xA;[HttpPatch]&#xD;&#xA;Unarchive&#xD;&#xA;- Get Document by Id&#xD;&#xA;- Change Is Archive to false&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetContentByFolderId&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetFoldersbyFolderId&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetArchivedDocuments&#xD;&#xA;GetArchivedFiles by subscriberId&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetExpiredDocument&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetAllBySubScriberId&#xD;&#xA;-List&lt;Tuple&lt;FolderType&gt;, Dictionary&lt;Parent, List&lt;Children&gt;&gt;, List&lt;DirectParentId&gt;&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetFilePermissionByFileRecipientEmail&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetDuplicateFolder&#xD;&#xA;&#xD;&#xA;[HttpGet]&#xD;&#xA;GetAllBySubscriberMail">
+    <Position X="2.216" Y="2.444" Height="10.427" Width="2.877" />
+  </Comment>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.AddressBook">
+    <Position X="19.5" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACQEAAAAAAAAAAIAACQAAAAAIAAEAABAAABgAAAAg=</HashCode>
+      <FileName>Entities\AddressBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.AuditTrail">
+    <Position X="11.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAQAEAIAAAAAAAAAAAAAEAgAAAAAAgAQAAAAEAAAAAA=</HashCode>
+      <FileName>Entities\AuditTrail.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AuditAction" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Comment">
+    <Position X="13.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAABAAAAAAAAAAAAAAAAAACAAAACAAAAAA=</HashCode>
+      <FileName>Entities\Comment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CommentType" />
+      <Property Name="Document" />
+      <Property Name="Coordinate" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Component">
+    <Position X="17.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAAgQECIABAAAAAAAAAhAAAAAABAAAQBgAAABAAA=</HashCode>
+      <FileName>Entities\Component.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coordinate" />
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Coordinate">
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAgAAAAAGQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Coordinate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Document">
+    <Position X="14" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEIAAADCIDAgQAAAAAQAgAAEAEAQRIAEEAEQACAAA=</HashCode>
+      <FileName>Entities\Document.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DocumentType" />
+      <Property Name="DocumentStatus" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Recipients" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.CoordinateVm">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAgAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CoordinateVm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Folder">
+    <Position X="18.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABEAAAAAAAACAAQAAGAAAAAAAAACAAAAEAAAAAA=</HashCode>
+      <FileName>Entities\Folder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FolderType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Documents" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.SharedFolderDetail">
+    <Position X="21.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAAAQAAAAAAAAAAAAAAAIAAAAEAAAAAA=</HashCode>
+      <FileName>Entities\SharedFolderDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Inbox">
+    <Position X="16.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgABCAAAAAAAIAQAAAgAAAAAAAiAAAACAAIAAA=</HashCode>
+      <FileName>Entities\Inbox.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Document" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.Recipient">
+    <Position X="13.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAkoAACACAgAQAAAAAEAAAAAAABAAAAAAEAAABAg=</HashCode>
+      <FileName>Entities\Recipient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnyxDoc.DocumentService.Domain.Entities.RecipientAction">
+    <Position X="15" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgQAAIAgAAAAAAAAAAABAAAAAAAABAAAAEAAAA=</HashCode>
+      <FileName>Entities\RecipientAction.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DocumentRecipientAction" />
+      <Property Name="Recipient" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.AuditAction">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAgAAAAAAAAEAAFAAAAAAAAEAAAA=</HashCode>
+      <FileName>Enums\AuditAction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.CommentType">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Enums\CommentType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.DocumentRecipientAction">
+    <Position X="15" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Enums\DocumentRecipientAction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.DocumentStatus">
+    <Position X="12" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAEIAAAAIQAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\DocumentStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.DocumentType">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\DocumentType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.FilePermission">
+    <Position X="24.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAABAAACAIAAAAAAAAA=</HashCode>
+      <FileName>Enums\FilePermission.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.FolderType">
+    <Position X="20.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAgAAEAIAAAAAAAAAAQAA=</HashCode>
+      <FileName>Enums\FolderType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OnyxDoc.DocumentService.Domain.Enums.LabelType">
+    <Position X="15.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACAAAAAE=</HashCode>
+      <FileName>Enums\LabelType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

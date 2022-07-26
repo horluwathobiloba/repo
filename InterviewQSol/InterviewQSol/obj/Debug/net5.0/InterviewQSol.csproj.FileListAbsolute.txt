@@ -1,0 +1,16 @@
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\InterviewQSol.exe
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\InterviewQSol.deps.json
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\InterviewQSol.runtimeconfig.json
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\InterviewQSol.runtimeconfig.dev.json
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\InterviewQSol.dll
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\ref\InterviewQSol.dll
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\bin\Debug\net5.0\InterviewQSol.pdb
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.csproj.AssemblyReference.cache
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.AssemblyInfoInputs.cache
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.AssemblyInfo.cs
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.csproj.CoreCompileInputs.cache
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.dll
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\ref\InterviewQSol.dll
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.pdb
+C:\Users\John Kehinde\source\repos\InterviewQSol\InterviewQSol\obj\Debug\net5.0\InterviewQSol.genruntimeconfig.cache

@@ -1,0 +1,72 @@
+﻿
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>RubyReloaded.WalletService.Application</RootNamespace>
+    <AssemblyName>RubyReloaded.WalletService.Application</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Accounts\Commands\ActivateAccountStatus\**" />
+    <Compile Remove="Accounts\Commands\ChangeAccountStatus\**" />
+    <Compile Remove="Accounts\Commands\DeactivateAccountStatus\**" />
+    <Compile Remove="Accounts\Commands\UpdateAccount\**" />
+    <Compile Remove="Authorization\**" />
+    <Compile Remove="BankConfigurations\**" />
+    <Compile Remove="ContractDocuments\**" />
+    <Compile Remove="ProductCategoryConfiguration\**" />
+    <Compile Remove="Services\**" />
+    <Compile Remove="VirtualAccountConfiguration\**" />
+    <Compile Remove="WorkflowTransactions\**" />
+    <EmbeddedResource Remove="Accounts\Commands\ActivateAccountStatus\**" />
+    <EmbeddedResource Remove="Accounts\Commands\ChangeAccountStatus\**" />
+    <EmbeddedResource Remove="Accounts\Commands\DeactivateAccountStatus\**" />
+    <EmbeddedResource Remove="Accounts\Commands\UpdateAccount\**" />
+    <EmbeddedResource Remove="Authorization\**" />
+    <EmbeddedResource Remove="BankConfigurations\**" />
+    <EmbeddedResource Remove="ContractDocuments\**" />
+    <EmbeddedResource Remove="ProductCategoryConfiguration\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="VirtualAccountConfiguration\**" />
+    <EmbeddedResource Remove="WorkflowTransactions\**" />
+    <None Remove="Accounts\Commands\ActivateAccountStatus\**" />
+    <None Remove="Accounts\Commands\ChangeAccountStatus\**" />
+    <None Remove="Accounts\Commands\DeactivateAccountStatus\**" />
+    <None Remove="Accounts\Commands\UpdateAccount\**" />
+    <None Remove="Authorization\**" />
+    <None Remove="BankConfigurations\**" />
+    <None Remove="ContractDocuments\**" />
+    <None Remove="ProductCategoryConfiguration\**" />
+    <None Remove="Services\**" />
+    <None Remove="VirtualAccountConfiguration\**" />
+    <None Remove="WorkflowTransactions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.6.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.2" />
+	  <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1003" />
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup> 
+    <ProjectReference Include="..\..\..\ReventInject\ReventInject.csproj" /> 
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Airtime\Commands\" />
+    <Folder Include="Common\Mappings\" />
+  </ItemGroup>
+
+</Project>

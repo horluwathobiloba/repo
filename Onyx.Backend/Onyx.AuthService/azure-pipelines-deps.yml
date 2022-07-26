@@ -1,0 +1,62 @@
+trigger:
+  branches:
+    include:
+    - dev
+  paths:
+    include:
+    - Onyx.AuthService/src/API/Dockerfile.deps
+    - Onyx.AuthService/src/API/API.csproj
+    - Onyx.AuthService/src/Domain/Domain.csproj
+    - Onyx.AuthService/src/Application/Application.csproj
+    - Onyx.AuthService/src/Infrastructure/Infrastructure.csproj
+    - ReventInject/ReventInject.csproj
+
+pool:
+  name: DedicatedPipelines
+
+variables:
+- group: shared-keyvault-secrets
+- name: azureSubscription
+  value: MPN Subscription
+- name: dockerImageRegistry
+  value: devappcontainers.azurecr.io
+- name: dockerImageTag
+  value: $[format('{0}-{1}', lower(variables['Build.SourceBranchName']), variables['Build.BuildId'])]
+- name: dockerImageName
+  value: onyx/auth-service-deps
+- name: basePath
+  value: Onyx.AuthService
+- name: DOCKER_BUILDKIT
+  value: 1
+
+steps:
+- task: Docker@1
+  displayName: Build Docker Image
+  inputs:
+    azureSubscriptionEndpoint: $(azureSubscription)
+    azureContainerRegistry: $(dockerImageRegistry)
+    dockerFile: $(basePath)/src/API/Dockerfile.deps
+    buildContext: '.'
+    useDefaultContext: false
+    imageName: $(dockerImageName):$(dockerImageTag)
+    includeSourceTags: true
+    includeLatestTag: true
+    arguments: "--build-arg TOKEN=$(sonarqube-pushToken)"
+
+- task: Docker@1
+  displayName: Push Current Version
+  inputs:
+    azureSubscriptionEndpoint: $(azureSubscription)
+    azureContainerRegistry: $(dockerImageRegistry)
+    command: Push an image
+    imageName: $(dockerImageName):$(dockerImageTag)
+    includeSourceTags: true
+
+- task: Docker@1
+  displayName: Push Latest
+  inputs:
+    azureSubscriptionEndpoint: $(azureSubscription)
+    azureContainerRegistry: $(dockerImageRegistry)
+    command: Push an image
+    imageName: $(dockerImageName):latest
+    includeSourceTags: true

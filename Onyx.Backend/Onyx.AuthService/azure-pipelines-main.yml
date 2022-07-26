@@ -1,0 +1,223 @@
+trigger:
+  branches:
+    include:
+    - main
+    - dev
+  paths:
+    include:
+    - Onyx.AuthService/
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: shared-keyvault-secrets
+- name: azureSubscription
+  value: MPN Subscription
+- name: dockerImageRegistry
+  value: devappcontainers.azurecr.io
+- name: dockerImageTag
+  value: $[format('{0}-{1}', lower(variables['Build.SourceBranchName']), variables['Build.BuildId'])]
+- name: dockerImageName
+  value: onyx/auth-service:$(dockerImageTag)
+- name: abinbevDockerImageName
+  value: abinbevrevent.azurecr.io/onyx/auth-service:$(dockerImageTag)
+- name: basePath
+  value: Onyx.AuthService
+- name: chartBasePath
+  value: $(basePath)/helm/onyx-auth
+- name: isDev
+  value: $[eq(variables['Build.SourceBranch'], 'refs/heads/dev')]
+- name: isMain
+  value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+- name: DOCKER_BUILDKIT
+  value: 1
+
+resources:
+  containers:
+  - container: deps
+    image: devappcontainers.azurecr.io/onyx/auth-service-deps
+    endpoint: devappcontainers
+
+stages:
+- stage: CodeAnalysis
+  displayName: Code Analysis
+  condition: eq(variables.isDev, true)
+  pool:
+    name: DedicatedPipelines
+  jobs:
+  - job: RunSonar
+    displayName: Sonar Scan
+    container: deps
+    steps:
+    - script: |
+        set -e
+        dotnet tool install --global dotnet-sonarscanner
+        export PATH="$PATH:/home/AzDevOps_azpcontainer/.dotnet/tools"
+        mkdir -p ~/.sonar
+        cp -r /opt/sonarcache ~/.sonar/cache
+        dotnet sonarscanner begin /k:"onyx-auth" /d:sonar.host.url="https://sonarqube.anelloh.com"  /d:sonar.login="$(sonarqube-pushToken)"
+        dotnet build "API.csproj" -c Release
+        dotnet sonarscanner end /d:sonar.login="$(sonarqube-pushToken)"
+      workingDirectory: $(basePath)/src/API
+
+- stage: Build
+  displayName: Build
+  dependsOn: []
+  jobs:
+  - job: Build
+    steps:
+    - task: Docker@1
+      displayName: 'Build Docker Image'
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscription)
+        azureContainerRegistry: $(dockerImageRegistry)
+        dockerFile: $(basePath)/src/API/Dockerfile
+        buildContext: '.'
+        useDefaultContext: false
+        imageName: $(dockerImageName)
+        includeSourceTags: true
+        arguments: "-t $(abinbevDockerImageName)"
+
+    - task: Docker@1
+      displayName: 'Push Revent Image'
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscription)
+        azureContainerRegistry: $(dockerImageRegistry)
+        command: 'Push an image'
+        imageName: '$(dockerImageName)'
+
+    - task: Docker@1
+      displayName: 'Push Abinbev Image'
+      inputs:
+        containerregistrytype: Container Registry
+        dockerRegistryEndpoint: abinbevrevent
+        command: "Push an image"
+        imageName: "$(abinbevDockerImageName)"
+
+- stage: DeployDev
+  displayName: Deploy to Dev
+  dependsOn:
+  - Build
+  jobs:
+  - deployment: DeployDev
+    displayName: Deploy to Dev
+    environment: dev
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+
+          - task: AzureCLI@2
+            displayName: Set KeyVault IDs for dev deployment
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: bash
+              scriptLocation: inlineScript
+              addSpnToEnvironment: true
+              useGlobalConfig: true
+              inlineScript: |
+                subId=`az account show --query id --output tsv`
+                tenantId=`az keyvault show -n anelloh-dev --query properties.tenantId --output tsv`
+
+                sed -e "s/subscriptionId: \"<set by pipeline>\"/subscriptionId: \"${subId}\"/g" -i'' $(chartBasePath)/values.yaml
+                sed -e "s/tenantId: \"<set by pipeline>\"/tenantId: \"${tenantId}\"/g" -i'' $(chartBasePath)/values.yaml
+
+          - task: HelmDeploy@0
+            displayName: Deploy Dev
+            inputs:
+              connectionType: Azure Resource Manager
+              azureSubscription: $(azureSubscription)
+              azureResourceGroup: dev
+              kubernetesCluster: dev
+              namespace: default
+              command: upgrade
+              arguments: --install
+              chartType: FilePath
+              chartPath: $(chartBasePath)
+              releaseName: onyx-auth
+              overrideValues: image.tag=$(dockerImageTag)
+
+- stage: DeployAbimbev
+  displayName: Deploy to Abimbev
+  variables:
+  - group: shared-keyvault-secrets
+  condition: eq(variables.isDev, true)
+  dependsOn:
+  - DeployDev
+  jobs:
+  - deployment: DeployAbimbev
+    displayName: Deploy to Abimbev
+    environment: abinbev-k8s-prod
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+
+          - script: |
+              set -e
+              sed -e "s/subscriptionId: \"<set by pipeline>\"/subscriptionId: \"$(abimbev-cms-subscription-id)\"/g" -i'' values-abinbev-prod.yaml
+              sed -e "s/tenantId: \"<set by pipeline>\"/tenantId: \"$(abimbev-cms-tenant-id)\"/g" -i'' values-abinbev-prod.yaml
+            workingDirectory: $(chartBasePath)
+
+          - task: HelmDeploy@0
+            displayName: Deploy Abimbev
+            inputs:
+              connectionType: Kubernetes Service Connection
+              kubernetesServiceEndpoint: abinbev-k8s-prod
+              namespace: default
+              command: upgrade
+              arguments: --install
+              chartType: FilePath
+              chartPath: $(chartBasePath)
+              releaseName: onyx-auth
+              overrideValues: image.tag=$(dockerImageTag)
+              valueFile: $(chartBasePath)/values-abinbev-prod.yaml
+
+- stage: DeployStaging
+  displayName: Deploy to Staging
+  condition: eq(variables.isMain, true)
+  dependsOn:
+  - DeployDev
+  jobs:
+  - deployment: DeployStaging
+    displayName: Deploy to Staging
+    environment: staging
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+
+          - task: AzureCLI@2
+            displayName: Set KeyVault IDs for staging deployment
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: bash
+              scriptLocation: inlineScript
+              addSpnToEnvironment: true
+              useGlobalConfig: true
+              inlineScript: |
+                subId=`az account show --query id --output tsv`
+                tenantId=`az keyvault show -n anelloh-staging --query properties.tenantId --output tsv`
+
+                sed -e "s/subscriptionId: \"<set by pipeline>\"/subscriptionId: \"${subId}\"/g" -i'' $(chartBasePath)/values-staging.yaml
+                sed -e "s/tenantId: \"<set by pipeline>\"/tenantId: \"${tenantId}\"/g" -i'' $(chartBasePath)/values-staging.yaml
+
+          - task: HelmDeploy@0
+            displayName: Deploy Staging
+            inputs:
+              connectionType: Azure Resource Manager
+              azureSubscription: $(azureSubscription)
+              azureResourceGroup: staging
+              kubernetesCluster: staging
+              namespace: default
+              command: upgrade
+              arguments: --install
+              chartType: FilePath
+              chartPath: $(chartBasePath)
+              releaseName: onyx-auth
+              overrideValues: image.tag=$(dockerImageTag)
+              valueFile: $(chartBasePath)/values-staging.yaml
